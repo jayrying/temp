@@ -1,0 +1,171 @@
+<app-header-image *ngIf="settings.header == 'image'" [backgroundImage]="'assets/images/others/homepage.jpg'"
+    [bgImageAnimate]="true" [contentOffsetToTop]="true" [title]="'START YOUR SEARCH'"
+    [desc]="'We&rsquo;ll help you find a home you&rsquo;ll love'" [isHomePage]="true">
+</app-header-image>
+
+<app-header-carousel *ngIf="settings.header == 'carousel'" [slides]="slides" [contentOffsetToTop]="true">
+</app-header-carousel>
+
+<div class="px-3">
+    <div class="theme-container">
+
+        <mat-card class="main-content-header">
+            <form class="search-wrapper" [ngClass]="'variant-3'">
+                <div [fxLayout]="'row wrap'">
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                        <mat-form-field>
+                            <mat-label>Property Type</mat-label>
+                            <mat-select placeholder="Select Property Type" name="searchformPropertyType" [(ngModel)]="searchformPropertyType">
+                                <mat-option value=""></mat-option>
+                                <mat-option *ngFor="let val of propertyTypes" [value]="val">{{val}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                        <mat-form-field>
+                            <mat-label>Property Status</mat-label>
+                            <mat-select placeholder="Select Property Status" name="searchformPurpose" [(ngModel)]="searchformPurpose">
+                                <mat-option value=""></mat-option>
+                                <mat-option value="Buy">Buy</mat-option>
+                                <mat-option value="Rent">Rent</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Price</mat-label>
+                                    <input matInput placeholder="From" name="searchformFromPrice" [(ngModel)]="searchformFromPrice" type="text" onlyNumber>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label></mat-label>
+                                    <input matInput placeholder="To" name="searchformToPrice" [(ngModel)]="searchformToPrice" type="text" onlyNumber>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="center center" class="p-2">
+                    <button  (click)="searchFormResetClicked()" mat-raised-button color="warn" class="uppercase mx-1">Clear</button>
+                    <button (click)="searchFormSearchClicked()" mat-raised-button color="primary" class="search-btn mx-1">
+                        <mat-icon>search</mat-icon> Search
+                    </button>
+                </div>
+
+
+            </form>
+
+
+        </mat-card>
+
+    </div>
+
+    <div *ngIf="attaproperties" class="theme-container">
+
+
+        <div fxLayout="row wrap" class="properties-wrapper">
+            <div fxFlex="100" class="p-2">
+                <h1 fxLayoutAlign="center center" class="section-title">Recent Listing</h1>
+            </div>
+            <div *ngFor="let property of attaproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100" class="item">
+                <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
+                </app-property-item-new>
+            </div>
+            <div fxFlex="100" fxLayoutAlign="center center" class="p-2 mt-2">
+                <a routerLink="/properties" mat-raised-button color="primary" class="uppercase">View More</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<!-- <app-mission></app-mission> -->
+
+<div *ngIf="luxurytravelfeeds" class="section default">
+    <div class="px-3">
+        <div class="theme-container">
+            <h1 class="section-title">Luxury Travel</h1>
+
+            <mat-card class="p-0" fxLayout="row wrap">
+                <a href="{{luxurytravelfeeds[0].link}}" target="_blank" style="cursor: pointer" fxFlex="100"
+                    fxFlex.gt-md="50" fxShow="false" fxShow.gt-md style="position:relative">
+                    <p
+                        style="position:absolute;background-color:black;bottom:-16px;color: white;padding:20px; right:0;left:0;opacity:0.9">
+                        {{luxurytravelfeeds[0].title}}</p>
+                    <img src="{{luxurytravelfeeds[0].thumbnail}}" alt="mission" class="mw-100 d-block">
+                </a>
+                <div fxFlex="100" fxFlex.gt-md="50">
+                    <div fxLayout="row wrap">
+                        <div *ngFor="let item of luxurytravelfeeds | slice:1" fxFlex="100" fxFlex.gt-xs="50"
+                            style="position:relative">
+                            <a href="{{item.link}}" target="_blank" style="cursor: pointer">
+                                <p
+                                    style="position:absolute;background-color:black;bottom:-16px;color: white;padding:20px;right:0;left:0;opacity:0.9">
+                                    {{item.title}}</p>
+                                <img src="{{item.thumbnail}}" alt="mission" class="mw-100 d-block">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </mat-card>
+
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="forbesfeeds" class="section mt-3">
+    <div class="px-3">
+        <div class="theme-container">
+            <h1 class="section-title">Forbes</h1>
+            <div fxLayout="row wrap" class="services-wrapper">
+                <div *ngFor="let forbesfeed of forbesfeeds" fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-sm="50"
+                    class="p-2">
+                    <a href="{{forbesfeed.link}}" target="_blank" style="text-decoration: none">
+                        <mat-card fxLayout="column" fxLayoutAlign="start center" class="h-100 w-100 text-center">
+                            <img mat-card-image src="{{forbesfeed.thumbnail}}" alt="" class="swiper-lazy d-block">
+                            <mat-card-header>
+                                <div mat-card-avatar style="background: url('assets/images/others/forbes-icon.jpg')">
+                                </div>
+                                <mat-card-title>{{forbesfeed.author.split(",")[0]}}</mat-card-title>
+                                <mat-card-subtitle>{{forbesfeed.pubDate | date:'dd/MM/yyyy'}}</mat-card-subtitle>
+                            </mat-card-header>
+
+                            <h4 class="capitalize fw-600 my-3">{{forbesfeed.title}}</h4>
+                            <p>{{forbesfeed.content}}</p>
+                        </mat-card>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div fxLayoutAlign="center center">
+        <a routerLink="/forbes" mat-raised-button color="primary" class="uppercase mt-2"
+            style="margin-bottom: -1rem !important">View More</a>
+    </div>
+</div>
+
+<!-- <app-our-services></app-our-services> -->
+
+<!-- <app-testimonials></app-testimonials>  -->
+
+<app-featured-properties [properties]="featuredProperties"></app-featured-properties>
+<app-hot-offer-today [propertyId]="4"></app-hot-offer-today>
+
+
+<app-our-agents></app-our-agents>
+
+<app-clients></app-clients>

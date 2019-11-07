@@ -1,0 +1,239 @@
+<app-header-image [backgroundImage]="'assets/images/others/buy-page.jpeg'" 
+                  [bgImageAnimate]="false" 
+                  [contentOffsetToTop]="false" 
+                  [desc]="'“Home is where one starts from...” –T.S. Eliot'"
+                  [contentMinHeight]="200">
+</app-header-image>
+ 
+<div class="px-3"> 
+    
+  <div class="theme-container">  
+
+    <mat-sidenav-container class="all-properties mt-3"> 
+      <mat-sidenav #sidenav [autoFocus]="false" [opened]="sidenavOpen" [mode]="sidenavOpen ? 'side' : 'over'" class="search-sidenav">         
+        <mat-card [perfectScrollbar]="psConfig"> 
+          <button fxHide="false" fxHide.gt-xs mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon color="accent">close</mat-icon>
+          </button>
+          <form class="search-wrapper" [ngClass]="'variant-3'">
+            <div [fxLayout]="'column'">
+                    
+                <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                    <mat-form-field>
+                        <mat-label>Property Type</mat-label>
+                        <mat-select placeholder="Select Property Type" name="searchformPropertyType" [(ngModel)]="searchformPropertyType">
+                            <mat-option value=""></mat-option>
+                            <mat-option *ngFor="let val of propertyTypes" [value]="val">{{val}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                    <mat-form-field>
+                        <mat-label>Property Status</mat-label>
+                        <mat-select placeholder="Select Property Status" name="searchformPurpose" [(ngModel)]="searchformPurpose">
+                            <mat-option value=""></mat-option>
+                            <mat-option value="Buy">Buy</mat-option>
+                            <mat-option value="Rent">Rent</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                        <div fxFlex="45">
+                            <mat-form-field>
+                                <mat-label>Price</mat-label>
+                                <input matInput placeholder="From" name="searchformFromPrice" [(ngModel)]="searchformFromPrice" type="text" onlyNumber>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="45">
+                            <mat-form-field>
+                                <mat-label></mat-label>
+                                <input matInput placeholder="To" name="searchformToPrice" [(ngModel)]="searchformToPrice" type="text" onlyNumber>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div [fxLayout]="'column'" class="w-100">
+                        <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">                         
+                                <mat-form-field>
+                                    <mat-label>City</mat-label>
+                                    <mat-select placeholder="Select City..." name="searchformCity" [(ngModel)]="searchformCity">
+                                        <mat-option value=""></mat-option>
+                                        <mat-option *ngFor="let city of cities" [value]="city['id']">
+                                            {{city["name"]}}
+                                        </mat-option>
+                                    </mat-select> 
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">                         
+                                <mat-form-field>
+                                    <mat-label>Location</mat-label>
+                                    <mat-select placeholder="Select Locations..." name="searchformLocation" [(ngModel)]="searchformLocation">
+                                        <mat-option value=""></mat-option>
+                                        <mat-option *ngFor="let location of locations" [value]="location['id']">
+                                            {{location["name"]}}
+                                        </mat-option>
+                                    </mat-select> 
+                                </mat-form-field>
+                            </div>
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Bedrooms</mat-label>
+                                    <mat-select placeholder="From"  name="searchformFromBedroom" [(ngModel)]="searchformFromBedroom" >
+                                        <mat-option value=""></mat-option>
+                                        <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
+                                            {{number}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Bedrooms To</mat-label>
+                                    <mat-select placeholder="To"  name="searchformToBedroom" [(ngModel)]="searchformToBedroom" >
+                                        <mat-option value=""></mat-option>
+                                        <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
+                                            {{number}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div> 
+                    </div> 
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+            
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Bathrooms</mat-label>
+                                    
+                                    <mat-select placeholder="From"  name="searchformFromBathroom" [(ngModel)]="searchformFromBathroom">
+                                        <mat-option value=""></mat-option>
+                                        <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
+                                            {{number}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Bathrooms To</mat-label>
+                                    <mat-select placeholder="To"  name="searchformToBathroom" [(ngModel)]="searchformToBathroom">
+                                        <mat-option value=""></mat-option>
+                                        <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
+                                            {{number}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>             
+                    </div> 
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+        
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Area From</mat-label>
+                                    <input matInput  name="searchformFromArea" [(ngModel)]="searchformFromArea" autocomplete="off" placeholder="From" type="text" onlyNumber>                  
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Area To</mat-label>
+                                    <input matInput  name="searchformToArea" [(ngModel)]="searchformToArea" autocomplete="off" placeholder="To" type="text" onlyNumber>                  
+                                </mat-form-field>
+                            </div>
+                        </div> 
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Year Built</mat-label>
+                                    <input matInput  name="searchformFromBuiltinYear" [(ngModel)]="searchformFromBuiltinYear" autocomplete="off" placeholder="From" type="text" onlyNumber maxlength="4">                  
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="45">
+                                <mat-form-field>
+                                    <mat-label>Year Built To</mat-label>
+                                    <input matInput  name="searchformToBuiltinYear" [(ngModel)]="searchformToBuiltinYear" autocomplete="off" placeholder="To" type="text" onlyNumber maxlength="4">                  
+                                </mat-form-field>
+                            </div>
+                        </div> 
+            
+                    </div>        
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" class="p-2">
+                <button  (click)="searchFormResetClicked()" mat-raised-button color="warn" class="uppercase mx-1">Clear</button>
+                <button (click)="searchFormSearchClicked()" mat-raised-button color="primary" class="search-btn mx-1">
+                    <mat-icon>search</mat-icon> Search
+                </button>
+            </div>
+
+
+        </form>
+        </mat-card> 
+      </mat-sidenav>
+
+      <mat-sidenav-content ngClass.gt-sm="distance"> 
+
+        <div fxLayout="row wrap" class="properties-wrapper mt-0">            
+           
+            <div fxFlex="100" class="px-2 pb-2 pt-0">                
+                <app-properties-toolbar [showSidenavToggle]="!sidenavOpen"
+                                        (onSidenavToggle)="sidenav.toggle()"
+                                        (onChangeCount)="changeCount($event)"
+                                        (onChangeSorting)="changeSorting($event)"
+                                        (onChangeViewType)="changeViewType($event)">
+                </app-properties-toolbar>
+            </div>
+           
+            <div fxFlex="100" fxLayoutAlign="start start" class="p-2"> 
+                <mat-chip-list [ngClass]="(settings.rtl) ? 'ml-2' : 'mr-2'">
+                    <mat-chip selected disableRipple="true" color="warn" class="uppercase ws-nowrap">
+                        {{ propertiescount }} found
+                    </mat-chip> 
+                </mat-chip-list>
+                <app-properties-search-results-filters 
+                    [searchFields]="searchFields" 
+                    (onRemoveSearchField)="removeSearchField($event)">
+                </app-properties-search-results-filters>                 
+            </div>
+
+            <div *ngFor="let property of attaproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100"  class="item">                         
+                <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol" [fullWidthPage]="false"></app-property-item-new>
+            </div>
+
+            <div *ngIf="properties?.length == 0" fxFlex="100" fxLayoutAlign="center center" [style.min-height.px]="200">                
+                <mat-chip-list *ngIf="message">
+                    <mat-chip selected disableRipple="true" color="warn" class="uppercase ws-nowrap">
+                        {{message}}
+                    </mat-chip> 
+                </mat-chip-list> 
+            </div>            
+
+            <div *ngIf="properties?.length > 0" fxFlex="100" fxLayoutAlign="center center" class="p-2">
+                <mat-paginator [length]="propertiescount"
+                              [pageSize]="count"
+                              (page)="onPageChange($event)"
+                              class="w-100 mat-elevation-z1">
+                </mat-paginator>
+            </div>          
+         
+        </div>
+
+        
+
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+  </div>
+
+</div>
+
+
+
+<app-clients></app-clients>

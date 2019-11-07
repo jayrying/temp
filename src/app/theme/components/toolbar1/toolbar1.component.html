@@ -1,0 +1,16 @@
+ <mat-toolbar id="main-toolbar" class="mat-elevation-z2"> 
+  <div class="theme-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <a class="logo" routerLink="/" ><app-logo></app-logo></a> 
+    <div fxShow="false" fxShow.gt-sm class="horizontal-menu">            
+        <app-horizontal-menu [menuParentId]="0"></app-horizontal-menu>
+    </div> 
+    <div fxLayout="row" fxLayoutAlign="start center">     
+      <span fxHide="false" fxHide.gt-sm>
+        <button mat-button (click)="sidenavToggle()">
+          <mat-icon>menu</mat-icon>
+        </button> 
+      </span>
+      <a href="https://residencecrm.com/account/login" mat-raised-button color="primary" fxShow="false" fxShow.gt-xs class="uppercase">submit property</a>
+    </div>   
+  </div>     
+</mat-toolbar>

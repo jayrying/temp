@@ -1,0 +1,126 @@
+<div class="px-3">
+  <div class="theme-container">
+
+    <div *ngIf="appService.Data.compareList.length == 0" class="py-5">  
+      <mat-chip-list>
+          <mat-chip color="warn" selected="true" class="uppercase">You have no properties to compare.</mat-chip>
+      </mat-chip-list>
+    </div>
+  
+    <div *ngIf="appService.Data.compareList.length > 0" class="compare-carousel py-3"> 
+      
+      <mat-card fxLayout="row" fxLayoutAlign="space-between center" class="compare-toolbar">      
+        <h3 class="uppercase">Compare: {{appService.Data.compareList.length}}</h3>      
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="config.simulateTouch">
+            <button mat-mini-fab color="primary" class="carousel-prev swiper-button-prev swipe-arrow mx-2"><mat-icon>keyboard_arrow_left</mat-icon></button>
+            <button mat-mini-fab color="primary" class="carousel-next swiper-button-next swipe-arrow mx-2"><mat-icon>keyboard_arrow_right</mat-icon></button> 
+        </div> 
+        <button mat-mini-fab color="warn" fxHide="false" fxHide.gt-xs (click)="clear()"><mat-icon>cancel</mat-icon></button>
+        <button mat-raised-button color="warn" class="uppercase" fxShow="false" fxShow.gt-xs (click)="clear()">Clear All</button>
+      </mat-card>
+      
+      <div class="swiper-container h-100 carousel-outer mt-3" [swiper]="config"> 
+        <div class="swiper-wrapper h-100">      
+          <div *ngFor="let property of appService.Data.compareList" class="swiper-slide">
+
+            <mat-card class="compare-item">                 
+                <img mat-card-image [src]="property.gallery[0].medium" alt="image"> 
+                <button mat-icon-button class="remove" (click)="remove(property)">
+                  <mat-icon color="warn" class="mat-icon-lg">highlight_off</mat-icon>
+                </button>              
+                <mat-card-content>
+                    <h2 class="title"><a [routerLink]="['/properties', property.id]">{{property.title}}</a></h2>
+                    <p fxLayout="row" fxLayoutAlign="center center" class="address">
+                        <mat-icon class="text-muted">location_on</mat-icon>
+                        <span>{{property.formattedAddress}}</span>
+                    </p>
+                    <mat-chip-list>
+                        <mat-chip color="primary" selected="true" class="w-100">
+                            <h3 *ngIf="settings.currency == 'USD'" class="w-100 text-center">
+                                <span *ngIf="property.priceDollar.sale">{{property.priceDollar.sale | currency : 'USD' : 'symbol' : '1.0'}}</span>
+                                <span *ngIf="property.priceDollar.rent">{{property.priceDollar.rent | currency : 'USD' : 'symbol' : '1.0'}} /month</span>
+                            </h3>
+                            <h3 *ngIf="settings.currency == 'EUR'" class="w-100 text-center">
+                                <span *ngIf="property.priceEuro.sale">{{property.priceEuro.sale | currency : 'EUR' : 'symbol' : '1.0'}}</span>
+                                <span *ngIf="property.priceEuro.rent">{{property.priceEuro.rent | currency : 'EUR' : 'symbol' : '1.0'}} /month</span>
+                            </h3>
+                        </mat-chip>
+                    </mat-chip-list>
+                    <div class="details py-3">
+                        <div fxLayout="row" class="item">
+                          <span>Property Type:</span>
+                          <span>{{property.propertyType}}</span>
+                        </div> 
+                        <div fxLayout="row" class="item">
+                          <span>Property Status:</span>
+                          <div fxLayout="row wrap" class="list">
+                            <span *ngFor="let status of property.propertyStatus; let last=last" [class.list-item]="property.propertyStatus.length > 1" [class.last]="last">{{status}}</span>
+                          </div>
+                        </div> 
+                        <div fxLayout="row" class="item">
+                          <span>City:</span>
+                          <span>{{property.city}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Zip Code:</span>
+                          <span>{{property.zipCode}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                            <span>Neighborhood:</span>
+                            <div fxLayout="row wrap" class="list">
+                              <span *ngFor="let neighborhood of property.neighborhood; let last=last" [class.list-item]="property.neighborhood.length > 1" [class.last]="last">{{neighborhood}}</span>
+                            </div>
+                        </div>
+                        <div fxLayout="row" class="item">
+                            <span>Street:</span>
+                            <div fxLayout="row wrap" class="list">
+                                <span *ngFor="let street of property.street; let last=last" [class.list-item]="property.street.length > 1" [class.last]="last">{{street}}</span>
+                            </div>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Bedrooms:</span>
+                          <span>{{property.bedrooms}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Bathrooms:</span>
+                          <span>{{property.bathrooms}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Garages:</span>
+                          <span>{{property.garages}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Property size:</span>
+                          <span>{{property.area.value}} {{property.area.unit}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Year Built:</span>
+                          <span>{{property.yearBuilt}}</span>
+                        </div>
+                        <div fxLayout="row" class="item">
+                          <span>Features:</span>
+                          <div fxLayout="row wrap" class="list">
+                            <span *ngFor="let feature of property.features; let last=last" [class.list-item]="property.features.length > 1" [class.last]="last">{{feature}}</span>
+                          </div>
+                        </div> 
+                        <div fxLayout="row" class="item">
+                          <span>Published:</span>
+                          <span>{{property.published | date:"dd MMMM, yyyy" }}</span>
+                        </div>                         
+                    </div>
+                    <p class="uppercase text-center fw-500 mb-2">description</p>
+                    <p>{{property.desc}}</p>                     
+                </mat-card-content> 
+                <mat-card-actions class="text-center">  
+                    <a [routerLink]="['/properties', property.id]" mat-raised-button color="primary" class="uppercase mb-3">More info</a>                     
+                </mat-card-actions>             
+            </mat-card> 
+
+          </div>
+        </div>   
+      </div>
+
+    </div>
+
+  </div>
+</div>

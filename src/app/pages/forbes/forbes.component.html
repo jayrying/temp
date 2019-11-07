@@ -1,0 +1,25 @@
+<app-header-image [backgroundImage]="'assets/images/others/forbes-page.jpeg'" 
+                  [bgImageAnimate]="false" 
+                  [contentOffsetToTop]="false"                
+                  [title]="'Forbes'"
+                  [desc]="'Real Estate'">
+</app-header-image>
+
+<div class="px-3">
+  <div class="theme-container">
+    <div fxLayout="row wrap" class="agents-wrapper">
+      <div *ngFor="let agent of forbesfeeds" fxFlex="100" style="margin-bottom:20px" fxFlex.gt-md="100" fxFlex.md="100" fxFlex.sm="100" class="p-12">
+        <a href="{{agent.link}}" target="_blank" style="cursor:pointer;text-decoration: none">
+            <mat-card>
+                <img fxFlex="20" src="{{agent.thumbnail}}">
+                <mat-card-content style="margin-left:50px;display: flex;justify-content: space-between;flex-direction: column" fxFlex="60">
+                      <h2 class="fw-600">{{agent.title}}</h2>
+                      <p class="mt-3">{{agent.description}}</p>
+                      <div><p>By <strong>{{agent.author}}</strong></p></div>                                    
+                  </mat-card-content>                          
+              </mat-card>
+        </a>
+    </div>
+    </div>
+  </div>
+</div>
