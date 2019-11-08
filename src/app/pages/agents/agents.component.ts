@@ -17,14 +17,18 @@ export class AgentsComponent implements OnInit {
     this.getagents();
   }
 getagents(){
+  this.apiservice.externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=0.5&area=NW10&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
+  .subscribe((res:any)=>{
+    console.log("resooo",res)
+  })
   this.apiservice.get("apigetagents").subscribe((res:any)=>{
-    
+    console.log(res)
     res.data.forEach(item =>{
       this.agents.push( { 
         id: item.id,
         fullName: item.name,
         desc: item.description,            
-        organization: item.companyName,
+        organization: item.comanyName,
         email: item.primaryEmail,
         phone: item.phone,
         social: {
@@ -38,7 +42,7 @@ getagents(){
         image:`${environment.crmurl}${item.image} `
     },)
     })
-    console.log("res",res)
+    console.log("res",this.agents)
   })
 }
 }

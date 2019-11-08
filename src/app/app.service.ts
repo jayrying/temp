@@ -608,9 +608,9 @@ export class AppService {
     return [  
         { name: 'aloha', image: 'assets/images/clients/aloha.png' },
         { name: 'dream', image: 'assets/images/clients/dream.png' },  
-        { name: 'congrats', image: 'assets/images/clients/congrats.png' },
+        { name: 'congrats', image: 'assets/images/clients/congrats.jpeg' },
         { name: 'best', image: 'assets/images/clients/best.png' },
-        { name: 'original', image: 'assets/images/clients/original.png' },
+        { name: 'original', image: 'assets/images/clients/original.jpeg' },
         { name: 'retro', image: 'assets/images/clients/retro.png' },
         { name: 'king', image: 'assets/images/clients/king.png' },
         { name: 'love', image: 'assets/images/clients/love.png' },

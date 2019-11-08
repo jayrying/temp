@@ -66,6 +66,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {  
+    
+   
     this.propertyTypes = this.apiService.getPropertyTypes();
     this.getSlides();
     this.getProperties();

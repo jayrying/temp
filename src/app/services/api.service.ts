@@ -151,7 +151,19 @@ export class ApiService {
 
 
 }
+externalApi(url: string) {
+  const headers = new HttpHeaders()
 
+  headers.set('Content-Type', 'application/x-www-form-urlencoded');
+  headers.set('Accept', 'application/json');
+
+
+ 
+   
+  return this.http.get( url,{ headers})
+
+
+}
 post(url: string, body) {
    
     return this.http.post(environment.apiurl + url, body)

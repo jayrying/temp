@@ -26,3 +26,22 @@
 //     width: 47% !important;
 //     height: 206px !important;
 // }
+
+.mobileImg{
+    display: none
+}
+
+.webImg{
+    display: block
+}
+@media (min-width: 320px) and (max-width: 769px) {
+	.mobileImg{
+        display: block
+    }
+    
+    .webImg{
+        display: none
+    }
+
+
+}
