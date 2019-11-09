@@ -5,6 +5,8 @@ import { MatBottomSheet } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 import { Property, Location } from './app.models';
 import { AppSettings } from './app.settings';
+import { ApiService } from './services/api.service';
+import { environment } from 'src/environments/environment';
 
 export class Data {
   constructor(public properties: Property[],
@@ -29,7 +31,8 @@ export class AppService {
   constructor(public http:HttpClient, 
               private bottomSheet: MatBottomSheet, 
               private snackBar: MatSnackBar,
-              public appSettings:AppSettings) { }
+              public appSettings:AppSettings,
+              public apiserivce:ApiService) { }
     
   public getProperties(): Observable<Property[]>{
     return this.http.get<Property[]>(this.url + 'properties.json');
@@ -605,21 +608,30 @@ export class AppService {
 
 
   public getClients(){
-    return [  
-        { name: 'aloha', image: 'assets/images/clients/aloha.png' },
-        { name: 'dream', image: 'assets/images/clients/dream.png' },  
-        { name: 'congrats', image: 'assets/images/clients/congrats.jpeg' },
-        { name: 'best', image: 'assets/images/clients/best.png' },
-        { name: 'original', image: 'assets/images/clients/original.jpeg' },
-        { name: 'retro', image: 'assets/images/clients/retro.png' },
-        { name: 'king', image: 'assets/images/clients/king.png' },
-        { name: 'love', image: 'assets/images/clients/love.png' },
-        { name: 'the', image: 'assets/images/clients/the.png' },
-        { name: 'easter', image: 'assets/images/clients/easter.png' },
-        { name: 'with', image: 'assets/images/clients/with.png' },
-        { name: 'special', image: 'assets/images/clients/special.png' },
-        { name: 'bravo', image: 'assets/images/clients/bravo.png' }
-    ];
+
+    this.apiserivce.get("apigetagents").subscribe((res:any)=>{
+      let clients=[];
+
+      res.data.forEach(item =>{
+        clients.push( { name: item.name, image: `${environment.crmurl}${item.image} ` },)
+      })
+      return clients;
+    })
+    // return [  
+    //     { name: 'aloha', image: 'assets/images/clients/aloha.png' },
+    //     { name: 'dream', image: 'assets/images/clients/dream.png' },  
+    //     { name: 'congrats', image: 'assets/images/clients/congrats.jpeg' },
+    //     { name: 'best', image: 'assets/images/clients/best.png' },
+    //     { name: 'original', image: 'assets/images/clients/original.jpeg' },
+    //     { name: 'retro', image: 'assets/images/clients/retro.png' },
+    //     { name: 'king', image: 'assets/images/clients/king.png' },
+    //     { name: 'love', image: 'assets/images/clients/love.png' },
+    //     { name: 'the', image: 'assets/images/clients/the.png' },
+    //     { name: 'easter', image: 'assets/images/clients/easter.png' },
+    //     { name: 'with', image: 'assets/images/clients/with.png' },
+    //     { name: 'special', image: 'assets/images/clients/special.png' },
+    //     { name: 'bravo', image: 'assets/images/clients/bravo.png' }
+    // ];
   }
 
 

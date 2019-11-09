@@ -17,7 +17,7 @@ export class AgentsComponent implements OnInit {
     this.getagents();
   }
 getagents(){
-  this.apiservice.externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=0.5&area=NW10&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
+  this.apiservice.externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=00000&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
   .subscribe((res:any)=>{
     console.log("resooo",res)
   })

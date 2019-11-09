@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AppService } from 'src/app/app.service';
+import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-clients',
@@ -8,14 +10,25 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit {
-  public clients;
+  public clients=[];
   public config: SwiperConfigInterface = { };
-  constructor(public appService:AppService) { }
+  constructor(public appService:AppService,public apiserivce:ApiService) { }
 
   ngOnInit() {
-    this.clients = this.appService.getClients();
+    this.getClients();
   }
 
+  getClients(){
+    
+    this.apiserivce.get("apigetagents").subscribe((res:any)=>{
+    
+
+      res.data.forEach(item =>{
+        this.clients.push( { name: item.name, image: `${environment.crmurl}${item.image} ` },)
+      })
+     
+    })
+  }
   ngAfterViewInit(){
     this.config = {
       observer: true,

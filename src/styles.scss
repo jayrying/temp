@@ -22,6 +22,17 @@
     font-weight: 600 !important;
     font-size: 18px !important;
 }
+#circle {
+	width: 100px;
+	height: 100px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.rounded-circle {
+    border-radius: 50%!important;
+    width: 117px;
+}
 // mat-card img {
 //     width: 47% !important;
 //     height: 206px !important;
