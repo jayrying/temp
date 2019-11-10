@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
   public searchformPurpose;
   public searchformFromPrice;
   public searchformToPrice;
+  zooplaproperties: any[]=[];
   
   constructor(private router:Router,public apiService:ApiService,public appSettings:AppSettings, public appService:AppService, public mediaObserver: MediaObserver) {
     this.settings = this.appSettings.settings;
@@ -89,6 +90,58 @@ export class HomeComponent implements OnInit {
   this.apiService.getLuxuryTravelRssFeedUpdateListener().subscribe(res=>{    
     this.luxurytravelfeeds = res.slice(0,5);
   })
+  }
+
+  trindo(){
+    this.getFeaturedProperties();
+    this.apiService.getProperties();
+    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:propertysmall[])=>{
+    this.attaproperties = properties;
+    console.log("th",this.attaproperties)
+    
+
+
+  });
+
+  this.apiService.getForbesRssFeed();
+  this.apiService.getForbesRssFeedUpdateListener().subscribe(res=>{
+    this.forbesfeeds = res['items'].slice(0,4);
+    console.log(this.forbesfeeds);
+  })
+  this.apiService.getLuxuryTravelRssFeed();
+  this.apiService.getLuxuryTravelRssFeedUpdateListener().subscribe(res=>{    
+    this.luxurytravelfeeds = res.slice(0,5);
+  })
+  
+  }
+
+  england(){
+    this.apiService.externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+      this.attaproperties=[];
+res.listing.forEach(item =>{
+
+    this.zooplaproperties.push({
+  
+      id:item.listing_id,
+    address:item.displayable_address,
+    bathroom:item.num_bathrooms,
+    bedroom:item.num_bedrooms,
+    date:item.last_published_date,
+    description:item.description,
+    images:[],
+    zooplaImages:[item.image_url,item.image_80_60_url,item.image_150_113_url,item.image_354_255_url],
+    price:item.price,
+    size:"5200 Sq.ft",
+    tags:["For Rent", "Residential Plot"]
+})
+})
+
+  
+    })
+
+   
   }
 
   ngDoCheck(){

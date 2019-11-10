@@ -30,7 +30,7 @@ export class PropertyComponent implements OnInit {
   public config2: SwiperConfigInterface = {}; 
   private sub: any;
   public property:Property; 
-  public attaproperty:property; 
+  public attaproperty; 
   private propertySubscription: Subscription;
   public settings: Settings;  
   public embedVideo: any;
@@ -100,8 +100,40 @@ export class PropertyComponent implements OnInit {
    this.apiService.getProperty(id); 
    this.propertySubscription = this.apiService.getPropertyUpdateListener().subscribe(res=>{
     this.attaproperty = res;
-    console.log('this.attaproperty', this.attaproperty)
+
+    if(this.attaproperty===undefined){
+      this.apiService.externalApi(`https://api.zoopla.co.uk/api/v1/property_listings.js?listing_id=${id}&radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a`)
+      .subscribe((res:any)=>{
+        console.log("resooo",res)
+        this.attaproperty={};
+      this.attaproperty={
+    
+        agentName:res.listing[0].agent_name,
+        agentPersonalDescription:res.listing[0].agent_address,
+        agent_logo:res.listing[0].agent_logo,
+        agent_phone:res.listing[0].agent_phone,
+        id:res.listing[0].listing_id,
+      address:res.listing[0].displayable_address,
+      bathRoom:res.listing[0].num_bathrooms,
+      bedRoom:res.listing[0].num_bedrooms,
+      date:res.listing[0].last_published_date,
+      description:res.listing[0].description,
+      images:[],
+      zooplaImages:[res.listing[0].image_url,res.listing[0].image_80_60_url,res.listing[0].image_150_113_url,res.listing[0].image_354_255_url],
+      askingPrice:res.listing[0].price,
+      fkLocationIdNameWithParentName:res.listing[0].street_name,
+      fkCityIdName:res.listing[0].county,
+      propertyType:res.listing[0].property_type,
+      purpose:res.listing[0].listing_status,
+      size:"5200 Sq.ft",
+      tags:["For Rent", "Residential Plot"]
+  }
+console.log("this.a",this.attaproperty)
+  
+    
+      })    }
    })
+
   }
 
   ngAfterViewInit(){

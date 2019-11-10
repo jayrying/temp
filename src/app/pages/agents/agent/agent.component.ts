@@ -116,7 +116,7 @@ export class AgentComponent implements OnInit {
           id: item.data.id,
           fullName: item.data.name,
           desc: item.data.description,            
-          organization: item.data.companyName,
+          organization: item.data.comanyName,
           email: item.data.primaryEmail,
           phone: item.data.phone,
           social: {

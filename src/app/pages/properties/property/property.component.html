@@ -10,8 +10,9 @@
 
                     <div class="widget"> 
                         <mat-card *ngIf="agent">
-                            <!-- <img mat-card-image [src]="agent.image" [alt]="agent.fullName">  -->
-                            <img mat-card-image *ngIf="getAgentImage()" [src]="getAgentImage()" [alt]="agent.fullName"> 
+                            <img mat-card-image *ngIf='attaproperty.agentImagePath' [src]="getAgentImage()" [alt]="agent.fullName"> 
+                            <img mat-card-image *ngIf='attaproperty.agent_logo' [src]="attaproperty.agent_logo" [alt]="agent.fullName"> 
+                            <!-- <img mat-card-image  [src]="attaproperty.agent_logo" [alt]="agent.fullName">  -->
                             <mat-card-content>
                                 <!-- <h2 class="fw-600">Agent {{agent.fullName}}</h2> -->
                                 <h2 class="fw-600" *ngIf="attaproperty">Agent {{attaproperty.agentName || ''}}</h2>
@@ -19,7 +20,7 @@
                                 <p class="mt-3" *ngIf="attaproperty">{{attaproperty.agentPersonalDescription || ''}}</p>                                    
                                 <p fxLayoutAlign="start center"><mat-icon color="primary" matTooltip="Organization" matTooltipPosition="above">business</mat-icon><span class="mx-2">{{agent.organization}}</span></p>
                                 <p fxLayoutAlign="start center"><mat-icon color="primary">email</mat-icon><span class="mx-2">{{agent.email}}</span></p>
-                                <p fxLayoutAlign="start center"><mat-icon color="primary">call</mat-icon><span class="mx-2">{{getAgentPhoneNumber() || '-'}}</span></p>
+                                <p fxLayoutAlign="start center"><mat-icon color="primary">call</mat-icon><span class="mx-2">{{attaproperty.agent_phone}}{{getAgentPhoneNumber()}}</span></p>
                             </mat-card-content>
                             <mat-divider></mat-divider>
                             <mat-card-actions fxLayoutAlign="space-between center">
@@ -166,6 +167,11 @@
                                     <img [attr.data-src]="environment.crmurl  + image" class="swiper-lazy">
                                     <div class="swiper-lazy-preloader"></div>          
                                 </div>
+                                <div *ngFor="let image of attaproperty.zooplaImages" class="swiper-slide">
+                                        <img [attr.data-src]="image" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader"></div>          
+                                    </div>
+                                
                             </div>                      
                             <button mat-mini-fab color="primary" class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
                             <button mat-mini-fab color="primary" class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button> 
@@ -178,6 +184,10 @@
                                     <img [attr.data-src]="environment.crmurl  + image" class="swiper-lazy mw-100" (click)="selectImage(i)">
                                     <div class="swiper-lazy-preloader"></div>          
                                 </div>
+                                <div *ngFor="let image of attaproperty.zooplaImages; let i=index;" class="swiper-slide" [ngClass]="'thumb-'+i" [class.active-thumb]="i == 0">
+                                        <img [attr.data-src]="image" class="swiper-lazy mw-100" (click)="selectImage(i)">
+                                        <div class="swiper-lazy-preloader"></div>          
+                                    </div>
                             </div>  
                         </div>
                     </div>
@@ -269,7 +279,7 @@
                     </mat-card-content>
                 </mat-card> 
 
-                <mat-card *ngIf="showAnalytics" class="mt-3"> 
+                <!-- <mat-card *ngIf="showAnalytics" class="mt-3"> 
                     <mat-card-header fxLayoutAlign="center center"> 
                         <mat-card-title class="uppercase">Market Trends</mat-card-title> 
                     </mat-card-header>
@@ -294,7 +304,7 @@
                             </div> 
                             
                     </mat-card-content>
-                </mat-card> 
+                </mat-card>  -->
 
                 <mat-card class="mt-3"> 
                     <mat-card-header fxLayoutAlign="center center"> 

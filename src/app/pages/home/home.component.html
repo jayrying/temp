@@ -1,3 +1,4 @@
+
 <app-header-image *ngIf="settings.header == 'image'" [backgroundImage]="'assets/images/others/homepage.jpg'"
     [bgImageAnimate]="true" [contentOffsetToTop]="true" [title]="'START YOUR SEARCH'"
     [desc]="'We&rsquo;ll help you find a home you&rsquo;ll love'" [isHomePage]="true">
@@ -5,12 +6,22 @@
 
 <app-header-carousel *ngIf="settings.header == 'carousel'" [slides]="slides" [contentOffsetToTop]="true">
 </app-header-carousel>
+<div class="flagSetting">
 
+       
+
+        <a style="cursor: pointer;margin:10px" (click)='trindo()'>
+            <img class="flagimg" src='../../../assets/images/flags/trinidad-and-tobago.png'></a>
+        <a style="cursor: pointer;margin:10px" (click)='england()'>
+                <img class="flagimg" src='../../../assets/images/flags/england.jpg'></a>
+</div>
 <div class="px-3">
+      
     <div class="theme-container">
 
-        <mat-card class="main-content-header">
-            <form class="search-wrapper" [ngClass]="'variant-3'">
+        <!-- <mat-card class="main-content-header">
+                <i class="trinidad flag"></i>
+             <form class="search-wrapper" [ngClass]="'variant-3'">
                 <div [fxLayout]="'row wrap'">
                     <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
                         <mat-form-field>
@@ -58,10 +69,10 @@
                 </div>
 
 
-            </form>
+            </form> 
 
 
-        </mat-card>
+        </mat-card> -->
 
     </div>
 
@@ -76,6 +87,10 @@
                 <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
                 </app-property-item-new>
             </div>
+            <div *ngFor="let property of zooplaproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100" class="item">
+                    <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
+                    </app-property-item-new>
+                </div>
             <div fxFlex="100" fxLayoutAlign="center center" class="p-2 mt-2">
                 <a routerLink="/properties" mat-raised-button color="primary" class="uppercase">View More</a>
             </div>

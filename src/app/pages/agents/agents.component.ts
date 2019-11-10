@@ -13,14 +13,11 @@ export class AgentsComponent implements OnInit {
   constructor(public appService:AppService,private apiservice:ApiService) { }
 
   ngOnInit() {
-    //this.agents = this.appService.getAgents();
+  //this.agents = this.appService.getAgents();
     this.getagents();
   }
 getagents(){
-  this.apiservice.externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=00000&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
-  .subscribe((res:any)=>{
-    console.log("resooo",res)
-  })
+  
   this.apiservice.get("apigetagents").subscribe((res:any)=>{
     console.log(res)
     res.data.forEach(item =>{
