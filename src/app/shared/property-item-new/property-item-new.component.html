@@ -53,10 +53,11 @@
 
                 <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div>
-                        <h3 *ngIf="settings.currency == 'USD'" class="primary-color price">
+                        <!-- <h3 *ngIf="settings.currency == 'USD'" class="primary-color price">
                             <span>{{property.price}}</span>
-                            <!-- <span *ngIf="property.priceDollar.rent">{{property.priceDollar.rent | currency : 'USD' : 'symbol' : '1.0'}} /month</span> -->
-                        </h3>
+                            <!-- <span *ngIf="property.priceDollar.rent">
+                                {{property.priceDollar.rent | currency : 'USD' : 'symbol' : '1.0'}} /month</span> -
+                        </h3> -->
                         <h3 *ngIf="settings.currency == 'EUR'" class="primary-color price">
                             <!-- <span *ngIf="property.priceEuro.sale">{{property.priceEuro.sale | currency : 'EUR' : 'symbol' : '1.0'}}</span>
                             <span *ngIf="property.priceEuro.rent">{{property.priceEuro.rent | currency : 'EUR' : 'symbol' : '1.0'}} /month</span> -->
@@ -70,6 +71,7 @@
                 </div>
 
                 <div class="features mt-3">                    
+                    <p><span>Price</span><span>{{property.price}}</span></p>
                     <p><span>Property size</span><span>{{property.size}}</span></p>
                     <p><span>Bedrooms</span><span>{{property.bedroom}}</span></p>
                     <p><span>Bathrooms</span><span>{{property.bathroom}}</span></p>

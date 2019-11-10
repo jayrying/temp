@@ -13,8 +13,8 @@ import { property } from '../../../models/property.model';
 import { ApiService } from 'src/app/services/api.service';
 import { Subscription } from 'rxjs';
 import {environment} from '../../../../environments/environment';
-
-@Component({
+declare var jquery: any;
+declare var $: any;@Component({
   selector: 'app-property',
   templateUrl: './property.component.html',
   styleUrls: ['./property.component.scss']
@@ -43,6 +43,7 @@ export class PropertyComponent implements OnInit {
   public environment;
   public propertyid;
   public showAnalytics = false;
+  MapUrl: string;
   constructor(public apiService:ApiService, public appSettings:AppSettings, 
               public appService:AppService, 
               private activatedRoute: ActivatedRoute, 
@@ -125,9 +126,12 @@ export class PropertyComponent implements OnInit {
       fkCityIdName:res.listing[0].county,
       propertyType:res.listing[0].property_type,
       purpose:res.listing[0].listing_status,
+      latitude:res.listing[0].latitude,
+      longitude:res.listing[0].longitude,
       size:"5200 Sq.ft",
       tags:["For Rent", "Residential Plot"]
   }
+ this.MapUrl=`http://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed`
 console.log("this.a",this.attaproperty)
   
     
