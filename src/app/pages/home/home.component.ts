@@ -93,6 +93,7 @@ console.log("propertirs",properties)
       date:item.date,
       description:item.description,
       images:item.images,
+      location:item.location,
       zooplaImages:[],
       price:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ,
       size:item.size,
@@ -128,6 +129,7 @@ console.log("propertirs",properties)
     
         id:item.id,
       address:item.address,
+      
       bathroom:item.bathroom,
       bedroom:item.bedroom,
       date:item.date,

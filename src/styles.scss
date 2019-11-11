@@ -9,14 +9,14 @@
 @import "app/theme/styles/theme";
 @import "app/theme/styles/rtl";
 
-.mat-card-image {
-    width: calc(100% + 32px);
-    margin: 0 -16px 16px -16px;
-    height: 280px !important;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
+// .mat-card-image {
+//     width: calc(100% + 32px);
+//     margin: 0 -16px 16px -16px;
+//     height: 280px !important;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: 50% 50%;
+// }
 
 .fw-600 {
     font-weight: 600 !important;
@@ -47,32 +47,32 @@
 //     width: 47% !important;
 //     height: 206px !important;
 // }
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-  }
+// .tooltip {
+//     position: relative;
+//     display: inline-block;
+//     border-bottom: 1px dotted black;
+//   }
   
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
+//   .tooltip .tooltiptext {
+//     visibility: hidden;
+//     width: 120px;
+//     background-color: black;
+//     color: #fff;
+//     text-align: center;
+//     border-radius: 6px;
+//     padding: 5px 0;
     
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-  }
+//     /* Position the tooltip */
+//     position: absolute;
+//     z-index: 1;
+//     bottom: 100%;
+//     left: 50%;
+//     margin-left: -60px;
+//   }
   
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+//   .tooltip:hover .tooltiptext {
+//     visibility: visible;
+//   }
 .mobileImg{
     display: none
 }
