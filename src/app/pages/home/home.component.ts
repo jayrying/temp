@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   public message:string;
   public featuredProperties: Property[];
   private propertiesSubscription: Subscription;
-  public attaproperties:propertysmall[] = [];
+  public attaproperties= [];
   public forbesfeeds;
   public luxurytravelfeeds;
   public settings: Settings;
@@ -77,8 +77,29 @@ export class HomeComponent implements OnInit {
     // }
     this.getFeaturedProperties();
     this.apiService.getProperties();
-    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:propertysmall[])=>{
-    this.attaproperties = properties;
+    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:any)=>{
+    // this.attaproperties = properties;
+console.log("propertirs",properties)
+    properties.forEach(item =>{
+      let splitCurrency=item.price.split(' ');
+     let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      let currencyUnit=splitCurrency[0];
+      this.attaproperties.push({
+    
+        id:item.id,
+      address:item.address,
+      bathroom:item.bathroom,
+      bedroom:item.bedroom,
+      date:item.date,
+      description:item.description,
+      images:item.images,
+      zooplaImages:[],
+      price:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ,
+      size:item.size,
+      tags:item.tags
+  })
+  })
+
   });
 
   this.apiService.getForbesRssFeed();
@@ -95,9 +116,29 @@ export class HomeComponent implements OnInit {
   trindo(){
     this.getFeaturedProperties();
     this.apiService.getProperties();
-    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:propertysmall[])=>{
-    this.attaproperties = properties;
+    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:any)=>{
+    // this.attaproperties = properties;
     console.log("th",this.attaproperties)
+    console.log("propertirs",properties)
+    properties.forEach(item =>{
+      let splitCurrency=item.price.split(' ');
+     let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      let currencyUnit=splitCurrency[0];
+      this.attaproperties.push({
+    
+        id:item.id,
+      address:item.address,
+      bathroom:item.bathroom,
+      bedroom:item.bedroom,
+      date:item.date,
+      description:item.description,
+      images:item.images,
+      zooplaImages:[],
+      price:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ,
+      size:item.size,
+      tags:item.tags
+  })
+  })
     
 
 
@@ -132,7 +173,7 @@ res.listing.forEach(item =>{
     description:item.description,
     images:[],
     zooplaImages:[item.image_url,item.image_80_60_url,item.image_150_113_url,item.image_354_255_url],
-    price:item.price,
+    price:item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
     size:"5200 Sq.ft",
     tags:["For Rent", "Residential Plot"]
 })

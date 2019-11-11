@@ -82,7 +82,7 @@
             <mat-card-actions class="m-0 p-0" fxLayoutAlign="space-between center"> 
                 <p fxLayout="row" class="date mb-0">
                     <mat-icon class="text-muted">date_range</mat-icon>
-                     <span class="mx-2">{{property.date}}</span>
+                     <span class="mx-2">{{property.date | date:'MMMM d, y'}}</span>
                 </p>
                 <div>
                     <a [routerLink]="['/properties/property', property.id]" mat-stroked-button color="primary" class="uppercase">Details</a>

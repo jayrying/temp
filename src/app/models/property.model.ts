@@ -8,7 +8,7 @@ export class propertysmall {
     public images: string[];
     public location: string;
     public purpose:string;
-    public price: number;
+    public price: string;
     public size: string;
     public tags:string[];
 }

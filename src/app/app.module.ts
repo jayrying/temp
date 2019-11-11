@@ -37,7 +37,7 @@ import { VerticalMenuComponent } from './theme/components/menu/vertical-menu/ver
 import { FooterComponent } from './theme/components/footer/footer.component';
 import { LockScreenComponent } from './pages/lock-screen/lock-screen.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+//apikey='AIzaSyC0mY1KCvXwuHTVeui3srSgf0iaYjDysnU'
 
 
 @NgModule({
