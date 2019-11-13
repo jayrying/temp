@@ -13,8 +13,8 @@ export class AgentsComponent implements OnInit {
   constructor(public appService:AppService,private apiservice:ApiService) { }
 
   ngOnInit() {
-  //this.agents = this.appService.getAgents();
-    this.getagents();
+  this.agents = this.appService.getAgents();
+    //this.getagents();
   }
 getagents(){
   

@@ -109,31 +109,31 @@ export class AgentComponent implements OnInit {
   } 
 
   public getAgentById(id){
-    this.apiservice.post(`apigetagent?agentid=${id}`,id).subscribe((item:any)=>{
+    // this.apiservice.post(`apigetagent?agentid=${id}`,id).subscribe((item:any)=>{
 
-      this.agent={
+    //   this.agent={
         
-          id: item.data.id,
-          fullName: item.data.name,
-          desc: item.data.description,            
-          organization: item.data.comanyName,
-          email: item.data.primaryEmail,
-          phone: item.data.phone,
-          social: {
+    //       id: item.data.id,
+    //       fullName: item.data.name,
+    //       desc: item.data.description,            
+    //       organization: item.data.comanyName,
+    //       email: item.data.primaryEmail,
+    //       phone: item.data.phone,
+    //       social: {
             
-            skype: item.data.skype,
-            whatsapp: item.data.whatsapp,
-            website: item.data.website
-          },
-          ratingsCount: 6,
-          ratingsValue: 480,
-          image:`${environment.crmurl}${item.data.image} `
+    //         skype: item.data.skype,
+    //         whatsapp: item.data.whatsapp,
+    //         website: item.data.website
+    //       },
+    //       ratingsCount: 6,
+    //       ratingsValue: 480,
+    //       image:`${environment.crmurl}${item.data.image} `
       
-      }
-      console.log("item",this.agent)
+    //   }
+    //   console.log("item",this.agent)
 
-    })
-    //this.agent = this.appService.getAgents().filter(agent=> agent.id == id)[0]; 
+    // })
+    this.agent = this.appService.getAgents().filter(agent=> agent.id == id)[0]; 
   }
    
 

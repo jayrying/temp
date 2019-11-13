@@ -34,7 +34,7 @@ export class PropertyComponent implements OnInit {
   private propertySubscription: Subscription;
   public settings: Settings;  
   public embedVideo: any;
-  public relatedProperties: Property[];
+  public relatedProperties:any=[];
   public featuredProperties: Property[];
   public agent:any;
   public mortgageForm: FormGroup;
@@ -57,10 +57,13 @@ export class PropertyComponent implements OnInit {
     this.sub = this.activatedRoute.params.subscribe(params => {   
       this.getPropertyById(1); 
       this.getAttaPropertyById(params['id']);
+      //
+
       this.propertyid = params['id'] 
     });
-    this.getRelatedProperties();
+    
     this.getFeaturedProperties();
+
     this.getAgent(1);
     if(window.innerWidth < 960){
       this.sidenavOpen = false;
@@ -105,15 +108,18 @@ export class PropertyComponent implements OnInit {
     
 
      if(res!=undefined){
-
+      
       let splitCurrency=res.askingPrice.split(' ');
+      
+      if(splitCurrency[0]==='TTD'){
       askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
        currencyUnit=splitCurrency[0];
+      }
        this.attaproperty = res;
+      
      this.attaproperty.askingPrice=askingPrice;
      this.attaproperty.currencyUnit=currencyUnit;
-    console.log("in",res, this.attaproperty)
-      
+    this.getRelatedProperties();
      }
      else{
        this.attaproperty=undefined
@@ -152,6 +158,8 @@ export class PropertyComponent implements OnInit {
       size:"5200 Sq.ft",
       tags:["For Rent", "Residential Plot"]
   }
+  this.getRelatedProperties();
+
   
     
       })    }
@@ -253,19 +261,29 @@ export class PropertyComponent implements OnInit {
 
 
   public getRelatedProperties(){
-    this.appService.getRelatedProperties().subscribe(properties=>{
-      this.relatedProperties = properties;
+    let relatedarray = this.appService.getrelatedproperty();
 
-  //   this.apiService.getPropertiesUpdateListener().subscribe(properties=>{
+    relatedarray.forEach((property:any)=>{
 
-  //     this.relatedProperties =  properties.filter(function(hero) {
-  //       return hero.price == “Marvel”;
-  //     });
-
-  //   })
-  // }
-      
+      console.log(this.attaproperty)
+      if(property.bedrooms===this.attaproperty.bedRoom
+         || property.bathrooms===this.attaproperty.bathRoom
+        ){
+        this.relatedProperties.push(property)
+      }
     })
+  //   this.appService.getRelatedProperties().subscribe((properties:any)=>{
+  //     this.relatedProperties = properties;
+  // //   this.apiService.getPropertiesUpdateListener().subscribe(properties=>{
+
+  // //     this.relatedProperties =  properties.filter(function(hero) {
+  // //       return hero.price == “Marvel”;
+  // //     });
+
+  // //   })
+  // // }
+      
+  //   })
   }
 
   public getFeaturedProperties(){

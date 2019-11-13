@@ -19,8 +19,11 @@
                   <h2 class="fw-600">{{agent.fullName}}</h2>
                   <app-rating [ratingsCount]="agent.ratingsCount" [ratingsValue]="agent.ratingsValue"></app-rating>
                   <p class="mt-3">{{agent.desc}}</p>                                    
-                  <p fxLayoutAlign="start center"><mat-icon color="primary" matTooltip="Organization" matTooltipPosition="above">business</mat-icon><span class="mx-2">{{agent.organization}}</span></p>
-                  <p fxLayoutAlign="start center"><mat-icon color="primary">email</mat-icon><span class="mx-2">{{agent.email}}</span></p>
+                  <p fxLayoutAlign="start center"><mat-icon color="primary"
+                     matTooltip="Organization" matTooltipPosition="above">
+                     business</mat-icon><span class="mx-3" style="font-size: 11px;">{{agent.organization}}</span></p>
+                  <p fxLayoutAlign="start center"><mat-icon color="primary">email</mat-icon><span  class="mx-2">
+                    {{agent.email}}</span></p>
                   <p fxLayoutAlign="start center"><mat-icon color="primary">call</mat-icon><span class="mx-2">{{agent.phone}}</span></p>
               </mat-card-content>
               <mat-divider></mat-divider>

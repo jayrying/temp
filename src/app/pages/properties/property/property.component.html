@@ -60,31 +60,40 @@
                     
                     <div class="widget">
                         <h3 class="widget-title bg-primary">Reply to the listing</h3>
-                        <form [formGroup]="contactForm" (ngSubmit)="onContactFormSubmit(contactForm.value)">
+                        <!-- [formGroup]="contactForm" -->
+                        <form  (ngSubmit)="onContactFormSubmit(contactForm.value)">
                             <p>Interested in renting or buying this property? Then send us an email.</p>
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Name</mat-label>
-                                <input matInput placeholder="Your Name" autocomplete="off" formControlName="name">
-                                <mat-error *ngIf="contactForm.controls.name.errors?.required">Name is required</mat-error>                   
+                                <!-- name='name' formControlName="name" -->
+                                <input matInput placeholder="Your Name" autocomplete="off" 
+                                >
+                                <!-- <mat-error *ngIf="contactForm.controls.name.errors?.required">Name is required</mat-error>                    -->
                             </mat-form-field>
 
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>E-mail</mat-label> 
-                                <input matInput placeholder="Your Email" autocomplete="off" formControlName="email">
-                                <mat-error *ngIf="contactForm.controls.email.errors?.required">Email is required</mat-error>
-                                <mat-error *ngIf="contactForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+                                <!--  name='email' formControlName="email" -->
+                                <input matInput placeholder="Your Email" autocomplete="off"
+                                >
+                                <!-- <mat-error *ngIf="contactForm.controls.email.errors?.required">Email is required</mat-error> -->
+                                <!-- <mat-error *ngIf="contactForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error> -->
                             </mat-form-field>
 
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Phone</mat-label>
-                                <input matInput placeholder="Your Phone" autocomplete="off" formControlName="phone" type="number"> 
-                                <mat-error *ngIf="contactForm.controls.phone.errors?.required">Phone is required</mat-error>                 
+                                <!--  name='phone' formControlName="phone" -->
+                                <input matInput placeholder="Your Phone" autocomplete="off"
+                                 type="number"> 
+                                <!-- <mat-error *ngIf="contactForm.controls.phone.errors?.required">Phone is required</mat-error>                  -->
                             </mat-form-field>
 
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Message</mat-label> 
-                                <textarea matInput placeholder="Your Message" formControlName="message" rows="6"></textarea> 
-                                <mat-error *ngIf="contactForm.controls.message.errors?.required">Message is required</mat-error>
+                                <!-- name='message' formControlName="message" -->
+                                <textarea matInput placeholder="Your Message" 
+                                 rows="6"></textarea> 
+                                <!-- <mat-error *ngIf="contactForm.controls.message.errors?.required">Message is required</mat-error> -->
                             </mat-form-field>  
                             <div class="text-center">
                                 <button mat-raised-button color="accent" type="submit">Send Email</button>
@@ -161,23 +170,27 @@
                                 <mat-icon class="">compare_arrows</mat-icon>
                             </button>  
                         </div>   
-                        <div id="main-carousel" class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)"> 
-                            <div class="swiper-wrapper">      
+                        <!-- id="main-carousel"  -->
+                        <div  class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)"> 
+                            <div class="swiper-wrapper">     
+                                 <!--  -->
                                 <div *ngFor="let image of attaproperty.images" class="swiper-slide">
                                     <img [attr.data-src]="environment.crmurl  + image" class="swiper-lazy">
                                     <div class="swiper-lazy-preloader"></div>          
                                 </div>
-                                <div *ngFor="let image of attaproperty.zooplaImages" class="swiper-slide">
+                                <!--  -->
+                                <div *ngFor="let image of attaproperty.zooplaImages"  class="swiper-slide">
                                         <img [attr.data-src]="image" class="swiper-lazy">
                                         <div class="swiper-lazy-preloader"></div>          
                                     </div>
                                 
                             </div>                      
-                            <button mat-mini-fab color="primary" class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
+                            <!-- <button mat-mini-fab color="primary" class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
                             <button mat-mini-fab color="primary" class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button> 
+                         -->
                         </div>
                     </div>
-                    <div class="small-carousel">   
+                    <!-- <div class="small-carousel">   
                         <div id="small-carousel" class="swiper-container" [swiper]="config2"> 
                             <div class="swiper-wrapper">      
                                 <div *ngFor="let image of attaproperty.images; let i=index;" class="swiper-slide" [ngClass]="'thumb-'+i" [class.active-thumb]="i == 0">
@@ -190,7 +203,7 @@
                                     </div>
                             </div>  
                         </div>
-                    </div>
+                    </div> -->
                 </mat-card> 
                 
                 

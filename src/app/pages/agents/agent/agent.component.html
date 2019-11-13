@@ -57,26 +57,26 @@
                 <h3 class="uppercase mb-2">Contact Me</h3>
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="Your Name" autocomplete="off" formControlName="name">
+                    <input matInput placeholder="Your Name" autocomplete="off" name='name' formControlName="name">
                     <mat-error *ngIf="contactForm.controls.name.errors?.required">Name is required</mat-error>                   
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>E-mail</mat-label> 
-                    <input matInput placeholder="Your Email" autocomplete="off" formControlName="email">
+                    <input matInput placeholder="Your Email" autocomplete="off" name='email' formControlName="email">
                     <mat-error *ngIf="contactForm.controls.email.errors?.required">Email is required</mat-error>
                     <mat-error *ngIf="contactForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Phone</mat-label>
-                    <input matInput placeholder="Your Phone" autocomplete="off" formControlName="phone" type="number"> 
+                    <input matInput placeholder="Your Phone" autocomplete="off" name="phone" formControlName="phone" type="number"> 
                     <mat-error *ngIf="contactForm.controls.phone.errors?.required">Phone is required</mat-error>                 
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Message</mat-label> 
-                    <textarea matInput placeholder="Your Message" formControlName="message" rows="6"></textarea> 
+                    <textarea matInput placeholder="Your Message" name="message" formControlName="message" rows="6"></textarea> 
                     <mat-error *ngIf="contactForm.controls.message.errors?.required">Message is required</mat-error>
                 </mat-form-field>  
                 <div class="text-center">

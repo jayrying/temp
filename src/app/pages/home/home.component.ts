@@ -175,7 +175,7 @@ res.listing.forEach(item =>{
     description:item.description,
     images:[],
     zooplaImages:[item.image_url,item.image_80_60_url,item.image_150_113_url,item.image_354_255_url],
-    price:item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+    price:'GBP'+" "+item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
     size:"5200 Sq.ft",
     tags:["For Rent", "Residential Plot"]
 })

@@ -9,14 +9,14 @@
 @import "app/theme/styles/theme";
 @import "app/theme/styles/rtl";
 
-// .mat-card-image {
-//     width: calc(100% + 32px);
-//     margin: 0 -16px 16px -16px;
-//     height: 280px !important;
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: 50% 50%;
-// }
+.mat-card-image {
+    width: calc(100% + 32px);
+    margin: 0 -16px 16px -16px;
+    height: 280px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
 
 .fw-600 {
     font-weight: 600 !important;
