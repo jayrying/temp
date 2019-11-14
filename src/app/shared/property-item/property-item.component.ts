@@ -4,6 +4,8 @@ import { Property } from '../../app.models';
 import { Settings, AppSettings } from '../../app.settings';
 
 import { AppService } from '../../app.service';
+import {environment} from '../../../environments/environment';
+
 import { CompareOverviewComponent } from '../compare-overview/compare-overview.component';
 
 @Component({
@@ -17,6 +19,7 @@ export class PropertyItemComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() viewColChanged = false;
   @Input() fullWidthPage = true;
   public column = 4;
+env=environment.crmurl
   // public address:string;
   @ViewChild(SwiperDirective, { static: false }) directiveRef: SwiperDirective;
   public config: SwiperConfigInterface = {};

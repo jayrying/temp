@@ -262,16 +262,132 @@ export class PropertyComponent implements OnInit {
 
   public getRelatedProperties(){
     let relatedarray = this.appService.getrelatedproperty();
+    console.log("related property",relatedarray)
 
-    relatedarray.forEach((property:any)=>{
+    relatedarray.subscribe((res:any) =>{
+      console.log("res",res)
+      res.data.forEach((property:any)=>{
 
-      console.log(this.attaproperty)
-      if(property.bedrooms===this.attaproperty.bedRoom
-         || property.bathrooms===this.attaproperty.bathRoom
-        ){
-        this.relatedProperties.push(property)
-      }
+        if(property.bedroom===this.attaproperty.bedRoom
+           || property.bathroom===this.attaproperty.bathRoom
+          ){
+
+          this.relatedProperties.push(
+            {
+                      "id": property.id,
+                      "title": property.location, 
+                      "desc": property.description,
+                      "propertyType": "Apartment",
+                      "propertyStatus": property.tags,
+                      "city":property.location,
+                      "zipCode": "10033",
+                      "neighborhood": ["Astoria", "Midtown"],
+                      "street": ["Astoria Street #1", "Midtown Street #2"],
+                      "location" : {
+                          "lat": 40.849150,
+                          "lng": -73.935100
+                      },
+                      "formattedAddress" : property.address,
+                      "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Swimming Pool", "TV Cable", "WiFi"],
+                      "featured": false, 
+                      "priceDollar": {
+                          "sale": property.price,
+                          "rent": null
+                      },
+                      "priceEuro": {
+                          "sale": property.price,
+                          "rent": null
+                      },
+                      "bedrooms": property.bedroom,
+                      "bathrooms": property.bathroom,
+                      "garages": 1,
+                      "area": {
+                          "value": 2380,
+                          "unit": "ft²"
+                      },
+                      "yearBuilt": 2007,
+                      "ratingsCount": 3,
+                      "ratingsValue": 280,
+                      "additionalFeatures": [                
+                          {
+                              "name": "Heat",
+                              "value": "Natural Gas"
+                          },
+                          {
+                              "name": "Roof",
+                              "value": "Composition/Shingle"
+                          },
+                          {
+                              "name": "Floors",
+                              "value": "Wall-to-Wall Carpet"
+                          },
+                          {
+                              "name": "Water",
+                              "value": "District/Public"
+                          },
+                          {
+                              "name": "Cross Streets",
+                              "value": "Orangethorpe-Gilbert"
+                          },
+                          {
+                              "name": "Windows",
+                              "value": "Skylights"
+                          },
+                          {
+                              "name": "Flat",
+                              "value": "5"
+                          },
+                          {
+                              "name": "Childroom",
+                              "value": "2"
+                          }
+                      ],
+                      "gallery": property.images,
+                      "plans": [
+                          {
+                              "name": "First floor",
+                              "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+                              "area": {
+                                  "value": 1180,
+                                  "unit": "ft²"
+                              },
+                              "rooms": 3,
+                              "baths": 1,
+                              "image": "assets/images/others/plan-1.jpg"
+                          },
+                          {
+                              "name": "Second floor",
+                              "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+                              "area": {
+                                  "value": 1200,
+                                  "unit": "ft²"
+                              },
+                              "rooms": 5,
+                              "baths": 2,
+                              "image": property.images[0]
+                          }
+                      ],
+                      "videos": [
+                          {
+                              "name": "Video with 'mat-video' plugin",
+                              "link": "http://themeseason.com/data/videos/video-1.mp4"
+                          },
+                          {
+                              "name": "Video with 'ngx-embed-video' plugin",
+                              "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+                          }
+                      ],
+                      "published": "2012-08-12 17:17:30",
+                      "lastUpdate": "2019-05-20 14:20:00",
+                      "views": 322
+                  },)
+               
+
+        }
+      })
+      console.log(this.relatedProperties)
     })
+  
   //   this.appService.getRelatedProperties().subscribe((properties:any)=>{
   //     this.relatedProperties = properties;
   // //   this.apiService.getPropertiesUpdateListener().subscribe(properties=>{

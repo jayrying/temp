@@ -13,7 +13,7 @@
             <div class="swiper-container" [swiper]="config">
                 <div class="swiper-wrapper"> 
                     <div *ngFor="let image of property.gallery" class="swiper-slide">
-                        <img [src]="image.medium" class="swiper-lazy">
+                        <img [src]="env + image" class="swiper-lazy">
                         <div class="swiper-lazy-preloader"></div>
                     </div> 
                 </div>  
