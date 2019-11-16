@@ -149,7 +149,28 @@ export class PropertiesComponent implements OnInit {
     let fullqueryString = this.makefullquerystring();
     this.apiService.getProperties(fullqueryString);
     this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties) => {
-      this.attaproperties = properties;
+      //this.attaproperties = properties;
+      properties.forEach(item =>{
+        let splitCurrency=item.price.split(' ');
+       let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        let currencyUnit=splitCurrency[0];
+        this.attaproperties.push({
+          detail:false,
+          link:'',
+          id:item.id,
+        address:item.address,
+        bathroom:item.bathroom,
+        bedroom:item.bedroom,
+        date:item.date,
+        description:item.description,
+        images:item.images,
+        location:item.location,
+        zooplaImages:[],
+        price:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ,
+        size:item.size,
+        tags:item.tags
+    })
+    })
     });
   }
   public getpropertiesengland() {

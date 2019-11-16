@@ -763,6 +763,42 @@ export class AppService {
   ratingsValue: 480, 
   image: 'assets/images/agents/a-13.png' 
 },
+{ 
+  id: 14,
+  fullName: 'Anson Humphrey',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "Circular Realty Investments",
+  email: 'support@residencecrm.com',
+  phone: '0161 300 0200',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-15.jpg' 
+},
+{ 
+  id: 14,
+  fullName: 'Kerron Brown',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "GenX Realty",
+  email: 'support@residencecrm.com',
+  phone: '0161 300 0200',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-2.png' 
+},
 ];
 
     return agent;
