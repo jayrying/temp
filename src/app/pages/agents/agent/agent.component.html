@@ -134,9 +134,9 @@
                 </app-properties-search-results-filters>                 
             </div>
 
-            <!-- <div *ngFor="let property of properties" [fxFlex]="(viewType=='grid') ? viewCol : 100"  class="item">                         
+            <div *ngFor="let property of properties" [fxFlex]="(viewType=='grid') ? viewCol : 100"  class="item">                         
                 <app-property-item [property]="property" [viewType]="viewType" [viewColChanged]="viewCol" [fullWidthPage]="false"></app-property-item>
-            </div> -->
+            </div>
 
             <div *ngIf="properties?.length == 0" fxFlex="100" fxLayoutAlign="center center" [style.min-height.px]="200">                
                 <mat-spinner *ngIf="!message"></mat-spinner>
