@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AppService } from 'src/app/app.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-our-agents',
@@ -10,10 +11,11 @@ import { AppService } from 'src/app/app.service';
 export class OurAgentsComponent implements OnInit {
   public agents;
   public config: SwiperConfigInterface = { };
-  constructor(public appService:AppService) { }
+  constructor(public appService:AppService,public apiservice:ApiService) { }
 
   ngOnInit() {
     this.agents = this.appService.getAgents();
+    //this.getukagent();
   }
 
   ngAfterViewInit(){
@@ -41,7 +43,37 @@ export class OurAgentsComponent implements OnInit {
       }
     }
   }
-
+  getukagent(){
+    this.apiservice
+    .externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+     
+  res.listing.forEach(item =>{
+  
+    this.agents.push({
+     
+      id: item.listing_id,
+      fullName: item.agent_name,
+      organization: item.agent_address,
+      email: 'support@residencecrm.com',
+      phone: item.agent_phone,
+      social: {
+        facebook: 'lusia',
+        twitter: 'lusia',
+        linkedin: 'lusia',
+        instagram: 'lusia',
+        website: 'https://lusia.manuel.com'
+      },
+      ratingsCount: 6,
+      ratingsValue: 480,
+      image:item.agent_logo 
+  })
+  })
+  
+  
+    })
+  }
 }
 
 

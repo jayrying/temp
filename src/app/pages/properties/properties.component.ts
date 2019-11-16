@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -18,6 +18,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./properties.component.scss']
 })
 export class PropertiesComponent implements OnInit {
+  propertyCountry;
+  caymanproperties: any=[];
+
   @ViewChild('sidenav', { static: true }) sidenav: any;
   public sidenavOpen: boolean = true;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -38,7 +41,7 @@ export class PropertiesComponent implements OnInit {
   public settings: Settings;
   private propertiesSubscription: Subscription;
   private propertiescountSubscription: Subscription;
-  public attaproperties: propertysmall[] = [];
+  public attaproperties= [];
   public propertiescount: number = 0;
   public propertyTypes;
   public cities;
@@ -80,6 +83,8 @@ export class PropertiesComponent implements OnInit {
 
   }
   ngOnInit() {
+    console.log("country",this.propertyCountry)
+    this.propertyCountry=localStorage.getItem("propertyCountry");
     this.apiService.getCities();
     this.apiService.getCitiesUpdateListener().subscribe(res=>{
       this.cities = res;
@@ -116,9 +121,26 @@ export class PropertiesComponent implements OnInit {
         }
       }
     })
-    this.getProperties();
     this.getpropertiescount();
-    this.getpropertiesnew();
+    if(this.propertyCountry==='trindo'){
+      this.getpropertiesnew();
+      this.getProperties();
+
+
+    }
+    if(this.propertyCountry==='england'){
+      this.getpropertiesengland();
+
+    }
+    if(this.propertyCountry==='bahamas'){
+      this.getpropertiesbahamas();
+
+    }
+    if(this.propertyCountry==='cayman'){
+      this.getpropertiescayman();
+
+    }
+    
   }
   ngOnDestroy() {
     this.watcher.unsubscribe();
@@ -126,9 +148,101 @@ export class PropertiesComponent implements OnInit {
   public getpropertiesnew() {
     let fullqueryString = this.makefullquerystring();
     this.apiService.getProperties(fullqueryString);
-    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties: propertysmall[]) => {
+    this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties) => {
       this.attaproperties = properties;
     });
+  }
+  public getpropertiesengland() {
+    let fullqueryString = this.makefullquerystring();
+    this.apiService.getProperties(fullqueryString);
+    this.apiService
+    .externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+     
+      this.attaproperties=[];
+res.listing.forEach(item =>{
+
+    this.attaproperties.push({
+  
+      id:item.listing_id,
+    address:item.displayable_address,
+    bathroom:item.num_bathrooms,
+    bedroom:item.num_bedrooms,
+    date:item.last_published_date,
+    description:item.description,
+    images:[],
+    zooplaImages:[item.image_url,item.image_80_60_url,item.image_150_113_url,item.image_354_255_url],
+    price:'GBP'+" "+item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+    size:"5200 Sq.ft",
+    tags:["For Rent", "Residential Plot"]
+})
+})
+
+  
+    })
+    // this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties) => {
+    //   this.attaproperties = properties;
+    // });
+  }
+  public getpropertiesbahamas(){
+    this.apiService.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.sirbahamas.com%2Feng%2Fsales%2Fbhs%2Fsingle-family-home-type%2Frss-out")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+      localStorage.removeItem("propertyCountry")
+      localStorage.setItem("propertyCountry",'bahamas')
+      this.attaproperties=[];
+res.items.forEach(item =>{
+
+    this.attaproperties.push({
+  
+      detail:true,
+      link:item.link,
+      id:item.listing_id,
+      address:item.title,
+      bathroom:0,
+      bedroom:0,
+      date:item.pubDate,
+      description:item.description,
+      images:[],
+      bahamasImages:[item.enclosure.link],
+      price:'',
+      size:"5200 Sq.ft",
+      tags:["For Rent", "Residential Plot"]
+})
+})
+
+  
+    })
+  }
+  public getpropertiescayman(){
+    this.apiService.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.sircaymanislands.com%2Feng%2Fsales%2Fcym%2Fnew-listings-sort%2Frss-out")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+      localStorage.removeItem("propertyCountry")
+      localStorage.setItem("propertyCountry",'cayman')
+      this.attaproperties=[];
+res.items.forEach(item =>{
+
+    this.attaproperties.push({
+      detail:true,
+      link:item.link,
+      id:item.listing_id,
+      address:item.title,
+      bathroom:0,
+      bedroom:0,
+      date:item.pubDate,
+      description:item.description,
+      images:[],
+      caymanImages:[item.enclosure.link],
+      price:'',
+      size:"5200 Sq.ft",
+      tags:["For Rent", "Residential Plot"]
+})
+})
+
+  
+    })
   }
   public makefullquerystring() {
     var querystring = "";
@@ -211,7 +325,14 @@ export class PropertiesComponent implements OnInit {
     this.properties.length = 0;
     this.resetPagination();
     this.getProperties();
-    this.getpropertiesnew();
+    if(this.propertyCountry==='trindo'){
+      this.getpropertiesnew();
+
+    }
+    if(this.propertyCountry==='england'){
+      this.getpropertiesengland();
+
+    }
   }
   public changeSorting(sort) {
     this.sort = sort;
@@ -227,7 +348,22 @@ export class PropertiesComponent implements OnInit {
     console.log(this.pageIndex);
     //this.pagination.page = e.pageIndex + 1;
     this.pageIndex = e.pageIndex;
-    this.getpropertiesnew();
+    if(this.propertyCountry==='trindo'){
+      this.getpropertiesnew();
+
+    }
+    if(this.propertyCountry==='england'){
+      this.getpropertiesengland();
+
+    }
+    if(this.propertyCountry==='bahamas'){
+      this.getpropertiesbahamas();
+
+    }
+    if(this.propertyCountry==='cayman'){
+      this.getpropertiescayman();
+
+    }
     window.scrollTo(0, 0);
   }
   public searchFormResetClicked()
@@ -238,7 +374,22 @@ export class PropertiesComponent implements OnInit {
     this.pageIndex = 0;
     window.scrollTo(0, 0);
     this.getpropertiescount();
-    this.getpropertiesnew();
+    if(this.propertyCountry==='trindo'){
+      this.getpropertiesnew();
+
+    }
+    if(this.propertyCountry==='england'){
+      this.getpropertiesengland();
+
+    }
+    if(this.propertyCountry==='bahamas'){
+      this.getpropertiesbahamas();
+
+    }
+    if(this.propertyCountry==='cayman'){
+      this.getpropertiescayman();
+
+    }
   }
   public searchFormSearchClicked()
   {
@@ -247,7 +398,22 @@ export class PropertiesComponent implements OnInit {
     this.pageIndex = 0;
     window.scrollTo(0, 0);
     this.getpropertiescount();
-    this.getpropertiesnew();
+    if(this.propertyCountry==='trindo'){
+      this.getpropertiesnew();
+
+    }
+    if(this.propertyCountry==='england'){
+      this.getpropertiesengland();
+
+    }
+    if(this.propertyCountry==='bahamas'){
+      this.getpropertiesbahamas();
+
+    }
+    if(this.propertyCountry==='cayman'){
+      this.getpropertiescayman();
+
+    }
   }
 
 }

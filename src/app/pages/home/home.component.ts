@@ -44,6 +44,8 @@ export class HomeComponent implements OnInit {
   public searchformFromPrice;
   public searchformToPrice;
   zooplaproperties: any[]=[];
+  bahamasproperties: any=[];
+  caymanproperties: any=[];
   
   constructor(private router:Router,public apiService:ApiService,public appSettings:AppSettings, public appService:AppService, public mediaObserver: MediaObserver) {
     this.settings = this.appSettings.settings;
@@ -80,12 +82,15 @@ export class HomeComponent implements OnInit {
     this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:any)=>{
     // this.attaproperties = properties;
 console.log("propertirs",properties)
+localStorage.removeItem("propertyCountry")
+localStorage.setItem("propertyCountry",'trindo')
     properties.forEach(item =>{
       let splitCurrency=item.price.split(' ');
      let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       let currencyUnit=splitCurrency[0];
       this.attaproperties.push({
-    
+        detail:false,
+        link:'',
         id:item.id,
       address:item.address,
       bathroom:item.bathroom,
@@ -115,18 +120,24 @@ console.log("propertirs",properties)
   }
 
   trindo(){
+    localStorage.removeItem("propertyCountry")
+    localStorage.setItem("propertyCountry",'trindo')
     this.getFeaturedProperties();
     this.apiService.getProperties();
     this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties:any)=>{
     // this.attaproperties = properties;
     console.log("th",this.attaproperties)
     console.log("propertirs",properties)
+    this.caymanproperties=[];
+    this.bahamasproperties=[];
+    this.zooplaproperties=[]
     properties.forEach(item =>{
       let splitCurrency=item.price.split(' ');
      let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       let currencyUnit=splitCurrency[0];
       this.attaproperties.push({
-    
+        detail:false,
+        link:'',
         id:item.id,
       address:item.address,
       
@@ -162,11 +173,16 @@ console.log("propertirs",properties)
     this.apiService.externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
     .subscribe((res:any)=>{
       console.log("resooo",res)
+      localStorage.removeItem("propertyCountry")
+      localStorage.setItem("propertyCountry",'england')
       this.attaproperties=[];
+      this.caymanproperties=[];
+      this.zooplaproperties=[]
 res.listing.forEach(item =>{
 
     this.zooplaproperties.push({
-  
+      detail:false,
+      link:'',
       id:item.listing_id,
     address:item.displayable_address,
     bathroom:item.num_bathrooms,
@@ -186,7 +202,69 @@ res.listing.forEach(item =>{
 
    
   }
+  bahamas(){
+    this.apiService.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.sirbahamas.com%2Feng%2Fsales%2Fbhs%2Frss-out")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+      localStorage.removeItem("propertyCountry")
+      localStorage.setItem("propertyCountry",'bahamas')
+      this.attaproperties=[];
+      this.zooplaproperties=[];
+      this.caymanproperties=[]
+res.items.forEach(item =>{
 
+    this.bahamasproperties.push({
+      detail:true,
+      link:item.link,
+      id:item.listing_id,
+      address:item.title,
+      bathroom:0,
+      bedroom:0,
+      date:item.pubDate,
+      description:item.description,
+      images:[],
+      bahamasImages:[item.enclosure.link],
+      price:'',
+      size:"5200 Sq.ft",
+      tags:["For Rent", "Residential Plot"]
+})
+})
+
+  
+    })
+  }
+
+  cayman(){
+    this.apiService.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.sircaymanislands.com%2Feng%2Fsales%2Fcym%2Fnew-listings-sort%2Frss-out")
+    .subscribe((res:any)=>{
+      console.log("resooo",res)
+      localStorage.removeItem("propertyCountry")
+      localStorage.setItem("propertyCountry",'cayman')
+      this.attaproperties=[];
+      this.bahamasproperties=[];
+      this.zooplaproperties=[]
+res.items.forEach(item =>{
+
+    this.caymanproperties.push({
+      detail:true,
+      link:item.link,
+      id:item.listing_id,
+      address:item.title,
+      bathroom:0,
+      bedroom:0,
+      date:item.pubDate,
+      description:item.description,
+      images:[],
+      caymanImages:[item.enclosure.link],
+      price:'',
+      size:"5200 Sq.ft",
+      tags:["For Rent", "Residential Plot"]
+})
+})
+
+  
+    })
+  }
   ngDoCheck(){
     if(this.settings.loadMore.load){     
       this.settings.loadMore.load = false;     

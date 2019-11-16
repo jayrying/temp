@@ -7,7 +7,8 @@ import { Property, Location } from './app.models';
 import { AppSettings } from './app.settings';
 import { ApiService } from './services/api.service';
 import { environment } from 'src/environments/environment';
-
+import { _ } from 'underscore';
+import { format } from 'path';
 export class Data {
   constructor(public properties: Property[],
               public compareList: Property[],
@@ -511,118 +512,81 @@ export class AppService {
   }
 
   public getAgents(){
-    
-    return [        
-        { 
-            id: 1,
-            fullName: 'Jesse Bajnauth',
-            organization: 'Dedicated Real Estate Services.',
-            email: 'support@residencecrm.com',
-            phone: '(224) 267-1346',
-            social: {
-              facebook: 'lusia',
-              twitter: 'lusia',
-              linkedin: 'lusia',
-              instagram: 'lusia',
-              website: 'https://lusia.manuel.com'
-            },
-            ratingsCount: 6,
-            ratingsValue: 480,
-            image: 'assets/images/agents/a-1.png' 
+  let  agent= [        
+    { 
+        id: 1,
+        fullName: 'Jesse Bajnauth',
+        organization: 'Dedicated Real Estate Services.',
+        email: 'support@residencecrm.com',
+        phone: '(224) 267-1346',
+        social: {
+          facebook: 'lusia',
+          twitter: 'lusia',
+          linkedin: 'lusia',
+          instagram: 'lusia',
+          website: 'https://lusia.manuel.com'
         },
-        { 
-            id: 2,
-            fullName: 'Amanda Youseek',
-            organization:'Demiurgic Management.',
-            email: 'support@residencecrm.com',
-            phone: '(212) 457-2308',
-            social: {
-              facebook: '',
-              twitter: '',
-              linkedin: '',
-              instagram: '',
-              website: 'https://andy.warhol.com'
-            },
-            ratingsCount: 4,
-            ratingsValue: 400,
-            image: 'assets/images/agents/a-2.png' 
-        },        
-        { 
-            id: 3,
-            fullName: 'Marissa Davis',
-            organization: 'Xippi Properties',
-            email: 'support@residencecrm.com',
-            phone: '(214) 617-2614',
-            social: {
-              facebook: '',
-              twitter: '',
-              linkedin: '',
-              instagram: '',
-              website: 'https://tereza.stiles.com'
-            },
-            ratingsCount: 4,
-            ratingsValue: 380,
-            image: 'assets/images/agents/a-3.png' 
+        ratingsCount: 6,
+        ratingsValue: 480,
+        image: 'assets/images/agents/a-1.png' 
+    },
+    { 
+        id: 2,
+        fullName: 'Amanda Youseek',
+        organization:'Demiurgic Management.',
+        email: 'support@residencecrm.com',
+        phone: '(212) 457-2308',
+        social: {
+          facebook: '',
+          twitter: '',
+          linkedin: '',
+          instagram: '',
+          website: 'https://andy.warhol.com'
         },
-        { 
-          id: 4,
-          fullName: 'Jillian Smith',
-                      
-          organization: 'Property Consultancy Management',
-          email: 'support@residencecrm.com',
-          phone: '(267) 388-1637',
-          social: {
-            facebook: '',
-            twitter: '',
-            linkedin: '',
-            instagram: '',
-            website: 'https://michael.blair.com'
-          },
-          ratingsCount: 6,
-          ratingsValue: 480,
-          image: 'assets/images/agents/a-4.jpg'  
+        ratingsCount: 4,
+        ratingsValue: 400,
+        image: 'assets/images/agents/a-2.jpg' 
+    },        
+    { 
+        id: 3,
+        fullName: 'Marissa Davis',
+        organization: 'Xippi Properties',
+        email: 'support@residencecrm.com',
+        phone: '(214) 617-2614',
+        social: {
+          facebook: '',
+          twitter: '',
+          linkedin: '',
+          instagram: '',
+          website: 'https://tereza.stiles.com'
         },
-        { 
-            id: 5,
-            fullName: 'Arnella Gomez',
-            //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
-            organization: 'Arnella Gomez Real Estate ',
-            email: 'support@residencecrm.com',
-            phone: '(267) 388-1637',
-            social: {
-              facebook: '',
-              twitter: '',
-              linkedin: '',
-              instagram: '',
-              website: 'https://michelle.ormond.com'
-            },
-            ratingsCount: 6,
-            ratingsValue: 480, 
-            image: 'assets/images/agents/a-5.jpg' 
-        },
-        { 
-          id: 6,
-          fullName: 'Pierre Mclean',
-          //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
-          organization: 'GDP Investors',
-          email: 'support@residencecrm.com',
-          phone: '(267) 388-1637',
-          social: {
-            facebook: '',
-            twitter: '',
-            linkedin: '',
-            instagram: '',
-            website: 'https://michelle.ormond.com'
-          },
-          ratingsCount: 6,
-          ratingsValue: 480, 
-          image: 'assets/images/agents/a-6.jpg' 
+        ratingsCount: 4,
+        ratingsValue: 380,
+        image: 'assets/images/agents/a-3.png' 
+    },
+    { 
+      id: 4,
+      fullName: 'Jillian Smith',
+                  
+      organization: 'Property Consultancy Management',
+      email: 'support@residencecrm.com',
+      phone: '(267) 388-1637',
+      social: {
+        facebook: '',
+        twitter: '',
+        linkedin: '',
+        instagram: '',
+        website: 'https://michael.blair.com'
       },
-      { 
-        id: 7,
-        fullName: 'Stacy Moonilal',
+      ratingsCount: 6,
+      ratingsValue: 480,
+      image: 'assets/images/agents/a-4.jpg'  
+    },
+    { 
+        id: 5,
+        fullName: 'Arnella Gomez',
         //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
-        organization: "Stacy's Real Estate ",
+        organization: 'Arnella Gomez Real Estate ',
         email: 'support@residencecrm.com',
         phone: '(267) 388-1637',
         social: {
@@ -634,13 +598,13 @@ export class AppService {
         },
         ratingsCount: 6,
         ratingsValue: 480, 
-        image: 'assets/images/agents/a-7.jpg' 
+        image: 'assets/images/agents/a-5.jpg' 
     },
     { 
-      id: 8,
-      fullName: 'Aking Enterprise',
+      id: 6,
+      fullName: 'Pierre Mclean',
       //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
-      organization: "Aking Enterprise",
+      organization: 'GDP Investors',
       email: 'support@residencecrm.com',
       phone: '(267) 388-1637',
       social: {
@@ -652,9 +616,157 @@ export class AppService {
       },
       ratingsCount: 6,
       ratingsValue: 480, 
-      image: 'assets/images/agents/a-8.png' 
+      image: 'assets/images/agents/a-6.jpg' 
   },
-    ];
+  { 
+    id: 7,
+    fullName: 'Stacy Moonilal',
+    //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+    organization: "Stacy's Real Estate ",
+    email: 'support@residencecrm.com',
+    phone: '(267) 388-1637',
+    social: {
+      facebook: '',
+      twitter: '',
+      linkedin: '',
+      instagram: '',
+      website: 'https://michelle.ormond.com'
+    },
+    ratingsCount: 6,
+    ratingsValue: 480, 
+    image: 'assets/images/agents/a-7.jpg' 
+},
+{ 
+  id: 8,
+  fullName: 'Aking Enterprise',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "Aking Enterprise",
+  email: 'support@residencecrm.com',
+  phone: '(267) 388-1637',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-8.png' 
+},
+
+{ 
+  id: 9,
+  fullName: 'Whittaker & Biggs',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "47-49 Derby Street, Leek",
+  email: 'support@residencecrm.com',
+  phone: '01538 269070',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-9.jpg' 
+},
+{ 
+  id: 10,
+  fullName: 'Savills - Knutsford',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "35/37 Princess Street, Knutsford",
+  email: 'support@residencecrm.com',
+  phone: '01565 358949',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-10.png' 
+},
+{ 
+  id: 11,
+  fullName: 'Peter E Gilkes and Company',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "44 Market Street, Chorley",
+  email: 'support@residencecrm.com',
+  phone: '01257 429149',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-11.jpeg' 
+},
+{ 
+  id: 12,
+  fullName: 'Strutt & Parker - Harrogate',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "Princes House, 13 Princes Square, Harrogate",
+  email: 'support@residencecrm.com',
+  phone: '01423 578931',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-12.jpeg' 
+},
+{ 
+  id: 13,
+  fullName: 'Residential Estates',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "Maple House, 23 Watergate Row, Chester",
+  email: 'support@residencecrm.com',
+  phone: '01244 725541',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-14.jpeg' 
+},
+{ 
+  id: 14,
+  fullName: 'Briscombe Nutter & Staff',
+  //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
+  organization: "9 Barton Road, Worsley",
+  email: 'support@residencecrm.com',
+  phone: '0161 300 0200',
+  social: {
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: 'https://michelle.ormond.com'
+  },
+  ratingsCount: 6,
+  ratingsValue: 480, 
+  image: 'assets/images/agents/a-13.png' 
+},
+];
+
+    return agent;
+    
   }
 
   public getrelatedproperty(queryString:string=""){

@@ -194,7 +194,7 @@
             <div fxFlex="100" fxLayoutAlign="start start" class="p-2"> 
                 <mat-chip-list [ngClass]="(settings.rtl) ? 'ml-2' : 'mr-2'">
                     <mat-chip selected disableRipple="true" color="warn" class="uppercase ws-nowrap">
-                        {{ propertiescount }} found
+                        {{ attaproperties.length }} found
                     </mat-chip> 
                 </mat-chip-list>
                 <app-properties-search-results-filters 
@@ -204,6 +204,7 @@
             </div>
 
             <div *ngFor="let property of attaproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100"  class="item">                         
+              
                 <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol" [fullWidthPage]="false"></app-property-item-new>
             </div>
 
@@ -216,7 +217,7 @@
             </div>            
 
             <div *ngIf="properties?.length > 0" fxFlex="100" fxLayoutAlign="center center" class="p-2">
-                <mat-paginator [length]="propertiescount"
+                <mat-paginator [length]="attaproperties.length"
                               [pageSize]="count"
                               (page)="onPageChange($event)"
                               class="w-100 mat-elevation-z1">

@@ -10,10 +10,15 @@
 
        
 
-        <a style="cursor: pointer;margin:10px" (click)='trindo()' >
-            <img class="flagimg" src='../../../assets/images/flags/trinidad-and-tobago.png'></a>
-        <a style="cursor: pointer;margin:10px" (click)='england()'>
+        <a style="cursor: pointer;margin:10px" title="Trinidad and Tobago" (click)='trindo()' >
+            <img class="flagimg"  src='../../../assets/images/flags/trinidad-and-tobago.png'></a>
+        <a style="cursor: pointer;margin:10px" title="England" (click)='england()'>
                 <img class="flagimg" src='../../../assets/images/flags/england.jpg'></a>
+
+                <a style="cursor: pointer;margin:10px" title="Bahamas" (click)='bahamas()'>
+                    <img class="flagimg" src='../../../assets/images/flags/bahamas.png'></a>
+                    <a style="cursor: pointer;margin:10px" title="Cayman Island" (click)='cayman()'>
+                            <img class="flagimg" src='../../../assets/images/flags/cayman.jpg'></a>
 </div>
 <div class="px-3">
       
@@ -88,9 +93,21 @@
                 </app-property-item-new>
             </div>
             <div *ngFor="let property of zooplaproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100" class="item">
-                    <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
+
+                <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
                     </app-property-item-new>
                 </div>
+                <div *ngFor="let property of bahamasproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100" class="item">
+
+                    <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
+                        </app-property-item-new>
+                    </div>
+                    <div *ngFor="let property of caymanproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100" class="item">
+
+                            <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">
+                                </app-property-item-new>
+                            </div>
+                    
             <div fxFlex="100" fxLayoutAlign="center center" class="p-2 mt-2">
                 <a routerLink="/properties" mat-raised-button color="primary" class="uppercase">View More</a>
             </div>

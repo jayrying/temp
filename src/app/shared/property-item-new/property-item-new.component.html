@@ -20,7 +20,15 @@
                             <img [src]="image" class="swiper-lazy">
                             <div class="swiper-lazy-preloader"></div>
                         </div> 
-                    
+                        
+                        <div *ngFor="let image of property.bahamasImages" class="swiper-slide">
+                            <img [src]="image" class="swiper-lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </div> 
+                        <div *ngFor="let image of property.caymanImages" class="swiper-slide">
+                                <img [src]="image" class="swiper-lazy">
+                                <div class="swiper-lazy-preloader"></div>
+                            </div>
                 </div>  
              
                 <div class="swiper-pagination white"></div>  
@@ -85,7 +93,10 @@
                      <span class="mx-2">{{property.date | date:'MMMM d, y'}}</span>
                 </p>
                 <div>
-                    <a [routerLink]="['/properties/property', property.id]" mat-stroked-button color="primary" class="uppercase">Details</a>
+
+                    <a *ngIf='!property.detail' [routerLink]="['/properties/property', property.id]" mat-stroked-button color="primary" class="uppercase">Details</a>
+                    <a *ngIf='property.detail'  href="{{property.link}}" mat-stroked-button color="primary" class="uppercase">Details</a>
+              
                 </div> 
             </mat-card-actions> 
         </div>        

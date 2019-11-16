@@ -7,6 +7,9 @@ export class propertysmall {
     public date:string;
     public images: string[];
     public zooplaImages:string[];
+    public bahamasImages:string[];
+    public caymanImages:string[];
+    public detail:boolean;
     public location: string;
     public purpose:string;
     public price: string;

@@ -133,7 +133,12 @@ export class AgentComponent implements OnInit {
     //   console.log("item",this.agent)
 
     // })
-    this.agent = this.appService.getAgents().filter(agent=> agent.id == id)[0]; 
+  
+      
+      this.agent = this.appService.getAgents().filter(agent=> agent.id == id)[0]; 
+    
+    
+
   }
    
 
