@@ -415,7 +415,7 @@ export class PropertyComponent implements OnInit {
   }
 
   public onContactFormSubmit(values:Object){
-    if (this.contactForm.valid) { 
+    //if (this.contactForm.valid) { 
       console.log(values);
       let data = {propertyid:this.propertyid.toString(),name:values['name'],phone:values['phone'].toString(),email:values['email'],message:values['message']};
       this.apiService.postpropertyresponse(data);
@@ -424,7 +424,7 @@ export class PropertyComponent implements OnInit {
       this.contactForm.controls.phone.setErrors(null);
       this.contactForm.controls.email.setErrors(null);
       this.contactForm.controls.message.setErrors(null);
-    } 
+   // } 
   }
 
   public onMortgageFormSubmit(values:Object){ 
