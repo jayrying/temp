@@ -95,7 +95,7 @@
                 <div>
 
                     <a *ngIf='!property.detail' [routerLink]="['/properties/property', property.id]" mat-stroked-button color="primary" class="uppercase">Details</a>
-                    <a *ngIf='property.detail'  href="{{property.link}}" mat-stroked-button color="primary" class="uppercase">Details</a>
+                    <a *ngIf='property.detail' target="_blank"  href="{{property.link}}" mat-stroked-button color="primary" class="uppercase">Details</a>
               
                 </div> 
             </mat-card-actions> 

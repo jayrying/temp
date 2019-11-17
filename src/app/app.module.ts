@@ -63,7 +63,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormsModule, 
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAAYi6itRZ0rPgI76O3I83BhhzZHIgMwPg',
+      apiKey: 'AIzaSyAI_VQCi3NZ5RX6m1xe1KdHgxjE_b6tz-k',
       libraries: ["places"]
     }),
     EmbedVideo.forRoot(),

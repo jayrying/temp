@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 import {propertysmall} from 'src/app/models/property.model';
 import {environment} from '../../../environments/environment';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -47,7 +48,10 @@ export class HomeComponent implements OnInit {
   bahamasproperties: any=[];
   caymanproperties: any=[];
   
-  constructor(private router:Router,public apiService:ApiService,public appSettings:AppSettings, public appService:AppService, public mediaObserver: MediaObserver) {
+  constructor(private router:Router,
+    public apiService:ApiService,
+    public http:HttpClient,
+    public appSettings:AppSettings, public appService:AppService, public mediaObserver: MediaObserver) {
     this.settings = this.appSettings.settings;
 
     this.watcher = mediaObserver.media$.subscribe((change: MediaChange) => {
@@ -120,7 +124,12 @@ localStorage.setItem("propertyCountry",'trindo')
   }
 
   trindo(){
-    
+    let obj={}
+    this.http.post("https://hidden-wave-78510.herokuapp.com/createuser",obj)
+    .subscribe((res:any)=>{
+      
+    })
+  
     localStorage.removeItem("propertyCountry")
     localStorage.setItem("propertyCountry",'trindo')
     this.getFeaturedProperties();
