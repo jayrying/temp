@@ -120,6 +120,7 @@ localStorage.setItem("propertyCountry",'trindo')
   }
 
   trindo(){
+    
     localStorage.removeItem("propertyCountry")
     localStorage.setItem("propertyCountry",'trindo')
     this.getFeaturedProperties();
