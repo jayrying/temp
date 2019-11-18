@@ -124,11 +124,13 @@ localStorage.setItem("propertyCountry",'trindo')
   }
 
   trindo(){
-    let obj={}
-    this.http.post("https://hidden-wave-78510.herokuapp.com/createuser",obj)
-    .subscribe((res:any)=>{
+    // let obj={
+
+    // }
+    // this.http.post("https://hidden-wave-78510.herokuapp.com/createuser",obj)
+    // .subscribe((res:any)=>{
       
-    })
+    // })
   
     localStorage.removeItem("propertyCountry")
     localStorage.setItem("propertyCountry",'trindo')

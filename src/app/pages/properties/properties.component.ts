@@ -121,10 +121,10 @@ export class PropertiesComponent implements OnInit {
         }
       }
     })
-    this.getpropertiescount();
     if(this.propertyCountry==='trindo'){
       this.getpropertiesnew();
       this.getProperties();
+      this.getpropertiescount();
 
 
     }
@@ -180,7 +180,7 @@ export class PropertiesComponent implements OnInit {
     .externalApi("https://api.zoopla.co.uk/api/v1/property_listings.js?radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a")
     .subscribe((res:any)=>{
       console.log("resooo",res)
-     
+     this.propertiescount=res.listing.length
       this.attaproperties=[];
 res.listing.forEach(item =>{
 
@@ -210,6 +210,7 @@ res.listing.forEach(item =>{
     this.apiService.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.sirbahamas.com%2Feng%2Fsales%2Fbhs%2Fsingle-family-home-type%2Frss-out")
     .subscribe((res:any)=>{
       console.log("resooo",res)
+      this.propertiescount=res.items.length
       localStorage.removeItem("propertyCountry")
       localStorage.setItem("propertyCountry",'bahamas')
       this.attaproperties=[];
@@ -240,6 +241,7 @@ res.items.forEach(item =>{
     this.apiService.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.sircaymanislands.com%2Feng%2Fsales%2Fcym%2Fnew-listings-sort%2Frss-out")
     .subscribe((res:any)=>{
       console.log("resooo",res)
+      this.propertiescount=res.items.length
       localStorage.removeItem("propertyCountry")
       localStorage.setItem("propertyCountry",'cayman')
       this.attaproperties=[];
@@ -394,9 +396,9 @@ res.items.forEach(item =>{
     this.attaproperties = [];
     this.pageIndex = 0;
     window.scrollTo(0, 0);
-    this.getpropertiescount();
     if(this.propertyCountry==='trindo'){
       this.getpropertiesnew();
+      this.getpropertiescount();
 
     }
     if(this.propertyCountry==='england'){
@@ -418,9 +420,9 @@ res.items.forEach(item =>{
     // this.attaproperties = [];
     this.pageIndex = 0;
     window.scrollTo(0, 0);
-    this.getpropertiescount();
     if(this.propertyCountry==='trindo'){
       this.getpropertiesnew();
+      this.getpropertiescount();
 
     }
     if(this.propertyCountry==='england'){

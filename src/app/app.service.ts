@@ -517,14 +517,14 @@ export class AppService {
       id: 2,
       fullName: 'Amanda Youseek',
       organization:'Demiurgic Management.',
-      email: 'support@residencecrm.com',
-      phone: '(212) 457-2308',
+      email: 'demiurgicmanagement@gmail.com',
+      phone: '1868 767-9406',
       social: {
         facebook: '',
         twitter: '',
         linkedin: '',
         instagram: '',
-        website: 'https://andy.warhol.com'
+        website: ''
       },
       ratingsCount: 4,
       ratingsValue: 400,
@@ -535,14 +535,14 @@ export class AppService {
     fullName: 'Arnella Gomez',
     //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
     organization: 'Arnella Gomez Real Estate ',
-    email: 'support@residencecrm.com',
-    phone: '(267) 388-1637',
+    email: 'arnellalyn@gmail.com',
+    phone: '1868 680-2233',
     social: {
       facebook: '',
       twitter: '',
       linkedin: '',
       instagram: '',
-      website: 'https://michelle.ormond.com'
+      website: ''
     },
     ratingsCount: 6,
     ratingsValue: 480, 
@@ -550,17 +550,17 @@ export class AppService {
 },
 { 
   id: 8,
-  fullName: 'Aking Enterprise',
+  fullName: 'King Aking Enterprise',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "Aking Enterprise",
-  email: 'support@residencecrm.com',
-  phone: '(267) 388-1637',
+  email: 'akingenterprisesales@gmail.com',
+  phone: '1868 355-1680',
   social: {
     facebook: '',
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://michelle.ormond.com'
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480, 
@@ -568,17 +568,17 @@ export class AppService {
 },
 { 
   id: 14,
-  fullName: 'Anson Humphrey',
+  fullName: 'Anson Dale Humphrey',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "Circular Realty Investments",
-  email: 'support@residencecrm.com',
-  phone: '0161 300 0200',
+  email: 'circularrealty@yahoo.com',
+  phone: '1868 737- 7760',
   social: {
     facebook: '',
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://michelle.ormond.com'
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480, 
@@ -606,14 +606,14 @@ export class AppService {
   id: 1,
   fullName: 'Jesse Bajnauth',
   organization: 'Dedicated Real Estate Services.',
-  email: 'support@residencecrm.com',
-  phone: '(224) 267-1346',
+  email: 'jessebajnauth@gmail.com',
+  phone: '1-868 797-0340',
   social: {
-    facebook: 'lusia',
-    twitter: 'lusia',
-    linkedin: 'lusia',
-    instagram: 'lusia',
-    website: 'https://lusia.manuel.com'
+    facebook: '',
+    twitter: '',
+    linkedin: '',
+    instagram: '',
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480,
@@ -621,11 +621,11 @@ export class AppService {
 },
 { 
   id: 4,
-  fullName: 'Jillian Smith',
+  fullName: 'Jillian - Jones Smith',
               
-  organization: 'Property Consultancy Management',
-  email: 'support@residencecrm.com',
-  phone: '(267) 388-1637',
+  organization: 'Step By Step Property Consultancy Management ',
+  email: 'jillians23@yahoo.com',
+  phone: '1868 750- 4442',
   social: {
     facebook: '',
     twitter: '',
@@ -642,14 +642,14 @@ export class AppService {
   fullName: 'Kerron Brown',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "GenX Realty",
-  email: 'support@residencecrm.com',
-  phone: '0161 300 0200',
+  email: 'kerron2017@gmail.com',
+  phone: '1868 470- 3232',
   social: {
     facebook: '',
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://michelle.ormond.com'
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480, 
@@ -659,14 +659,14 @@ export class AppService {
   id: 3,
   fullName: 'Marissa Davis',
   organization: 'Xippi Properties',
-  email: 'support@residencecrm.com',
-  phone: '(214) 617-2614',
+  email: 'xippiproperties@gmail.com',
+  phone: '1868 712-5742',
   social: {
     facebook: '',
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://tereza.stiles.com'
+    website: ''
   },
   ratingsCount: 4,
   ratingsValue: 380,
@@ -677,14 +677,14 @@ export class AppService {
   fullName: 'Pierre Mclean',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: 'GDP Investors',
-  email: 'support@residencecrm.com',
-  phone: '(267) 388-1637',
+  email: 'gdpinvestors@gmail.com',
+  phone: '1868 313-8801',
   social: {
     facebook: '',
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://michelle.ormond.com'
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480, 
@@ -756,7 +756,7 @@ export class AppService {
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://michelle.ormond.com'
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480, 
@@ -764,17 +764,17 @@ export class AppService {
 },
 { 
   id: 7,
-  fullName: 'Stacy Moonilal',
+  fullName: 'Staceyann Moonilal',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
-  organization: "Stacy's Real Estate ",
-  email: 'support@residencecrm.com',
-  phone: '(267) 388-1637',
+  organization: "Staceys Real Estate",
+  email: 'staceyann.moonilal@gmail.com',
+  phone: '1868 743-8020',
   social: {
     facebook: '',
     twitter: '',
     linkedin: '',
     instagram: '',
-    website: 'https://michelle.ormond.com'
+    website: ''
   },
   ratingsCount: 6,
   ratingsValue: 480, 
