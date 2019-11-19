@@ -9,11 +9,11 @@
         <div *ngIf="property.gallery.length == 1" class="mat-card-image w-100 m-0">
             <!-- <img *ngIf="property.gallery[0].medium" [src]="property.gallery[0].medium"> -->
         </div>
-        <div *ngIf="property.gallery.length > 1" class="mat-card-image w-100 m-0">
+        <div  class="mat-card-image w-100 m-0">
             <div class="swiper-container" [swiper]="config">
                 <div class="swiper-wrapper"> 
                     <div *ngFor="let image of property.gallery" class="swiper-slide">
-                        <img [src]="image.medium" class="swiper-lazy">
+                        <img [src]="image" class="swiper-lazy">
                         <div class="swiper-lazy-preloader"></div>
                     </div> 
                 </div>  
@@ -63,11 +63,12 @@
                     <p>{{property.desc}}</p>
                 </div>
 
-                <div class="features mt-3">                    
+                <div class="features mt-3">     
+                        <p><span>Price</span><span>{{property.priceDollar.sale}}</span></p>               
                     <p><span>Property size</span><span>{{property.area.value}} {{property.area.unit}}</span></p>
                     <p><span>Bedrooms</span><span>{{property.bedrooms}}</span></p>
                     <p><span>Bathrooms</span><span>{{property.bathrooms}}</span></p>
-                    <p><span>Garages</span><span>{{property.garages}}</span></p>
+                   
                 </div> 
 
             </mat-card-content>

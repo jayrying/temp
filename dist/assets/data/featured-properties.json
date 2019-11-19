@@ -69,36 +69,20 @@
             }
         ],
         "gallery": [
-            {
-                "small": "assets/images/props/office/1-small.jpg",
-                "medium": "assets/images/props/office/1-medium.jpg",
-                "big": "assets/images/props/office/1-big.jpg"
-            },
-            {
-                "small": "assets/images/props/office/2-small.jpg",
-                "medium": "assets/images/props/office/2-medium.jpg",
-                "big": "assets/images/props/office/2-big.jpg"
-            },
-            {
-                "small": "assets/images/props/office/3-small.jpg",
-                "medium": "assets/images/props/office/3-medium.jpg",
-                "big": "assets/images/props/office/3-big.jpg"
-            },
-            {
-                "small": "assets/images/props/office/4-small.jpg",
-                "medium": "assets/images/props/office/4-medium.jpg",
-                "big": "assets/images/props/office/4-big.jpg"
-            },
-            {
-                "small": "assets/images/props/office/5-small.jpg",
-                "medium": "assets/images/props/office/5-medium.jpg",
-                "big": "assets/images/props/office/5-big.jpg"
-            },
-            {
-                "small": "assets/images/props/office/6-small.jpg",
-                "medium": "assets/images/props/office/6-medium.jpg",
-                "big": "assets/images/props/office/6-big.jpg"
-            }
+        
+                "assets/images/props/office/1-medium.jpg",
+              
+        
+                 "assets/images/props/office/2-medium.jpg",
+          
+                 "assets/images/props/office/3-medium.jpg",
+             
+                 "assets/images/props/office/4-medium.jpg",
+         
+                 "assets/images/props/office/5-medium.jpg",
+          
+                 "assets/images/props/office/6-medium.jpg"
+            
         ],
         "plans": [
             {
@@ -208,32 +192,21 @@
             }
         ],
         "gallery": [
-            {
-                "small": "assets/images/props/flat-2/1-small.jpg",
-                "medium": "assets/images/props/flat-2/1-medium.jpg",
-                "big": "assets/images/props/flat-2/1-big.jpg"
-            },
-            {
-                "small": "assets/images/props/flat-2/2-small.jpg",
-                "medium": "assets/images/props/flat-2/2-medium.jpg",
-                "big": "assets/images/props/flat-2/2-big.jpg"
-            },
-            {
-                "small": "assets/images/props/flat-2/3-small.jpg",
-                "medium": "assets/images/props/flat-2/3-medium.jpg",
-                "big": "assets/images/props/flat-2/3-big.jpg"
-            },
-            {
-                "small": "assets/images/props/flat-2/4-small.jpg",
-                "medium": "assets/images/props/flat-2/4-medium.jpg",
-                "big": "assets/images/props/flat-2/4-big.jpg"
-            },
-            {
-                "small": "assets/images/props/flat-2/5-small.jpg",
-                "medium": "assets/images/props/flat-2/5-medium.jpg",
-                "big": "assets/images/props/flat-2/5-big.jpg"
-            }
-        ],
+        
+            "assets/images/props/office/1-medium.jpg",
+          
+    
+             "assets/images/props/office/2-medium.jpg",
+      
+             "assets/images/props/office/3-medium.jpg",
+         
+             "assets/images/props/office/4-medium.jpg",
+     
+             "assets/images/props/office/5-medium.jpg",
+      
+             "assets/images/props/office/6-medium.jpg"
+        
+    ],
         "plans": [
             {
                 "name": "First floor",
@@ -342,27 +315,21 @@
             }
         ],
         "gallery": [
-            {
-                "small": "assets/images/props/house-3/1-small.jpg",
-                "medium": "assets/images/props/house-3/1-medium.jpg",
-                "big": "assets/images/props/house-3/1-big.jpg"
-            },
-            {
-                "small": "assets/images/props/house-3/2-small.jpg",
-                "medium": "assets/images/props/house-3/2-medium.jpg",
-                "big": "assets/images/props/house-3/2-big.jpg"
-            },
-            {
-                "small": "assets/images/props/house-3/3-small.jpg",
-                "medium": "assets/images/props/house-3/3-medium.jpg",
-                "big": "assets/images/props/house-3/3-big.jpg"
-            },
-            {
-                "small": "assets/images/props/house-3/4-small.jpg",
-                "medium": "assets/images/props/house-3/4-medium.jpg",
-                "big": "assets/images/props/house-3/4-big.jpg"
-            }
-        ],
+        
+            "assets/images/props/office/1-medium.jpg",
+          
+    
+             "assets/images/props/office/2-medium.jpg",
+      
+             "assets/images/props/office/3-medium.jpg",
+         
+             "assets/images/props/office/4-medium.jpg",
+     
+             "assets/images/props/office/5-medium.jpg",
+      
+             "assets/images/props/office/6-medium.jpg"
+        
+    ],
         "plans": [
             {
                 "name": "First floor",
@@ -471,27 +438,21 @@
             }
         ],
         "gallery": [
-            {
-                "small": "assets/images/props/house-2/1-small.jpg",
-                "medium": "assets/images/props/house-2/1-medium.jpg",
-                "big": "assets/images/props/house-2/1-big.jpg"
-            },
-            {
-                "small": "assets/images/props/house-2/2-small.jpg",
-                "medium": "assets/images/props/house-2/2-medium.jpg",
-                "big": "assets/images/props/house-2/2-big.jpg"
-            },
-            {
-                "small": "assets/images/props/house-2/3-small.jpg",
-                "medium": "assets/images/props/house-2/3-medium.jpg",
-                "big": "assets/images/props/house-2/3-big.jpg"
-            },
-            {
-                "small": "assets/images/props/house-2/4-small.jpg",
-                "medium": "assets/images/props/house-2/4-medium.jpg",
-                "big": "assets/images/props/house-2/4-big.jpg"
-            }
-        ],
+        
+            "assets/images/props/office/1-medium.jpg",
+          
+    
+             "assets/images/props/office/2-medium.jpg",
+      
+             "assets/images/props/office/3-medium.jpg",
+         
+             "assets/images/props/office/4-medium.jpg",
+     
+             "assets/images/props/office/5-medium.jpg",
+      
+             "assets/images/props/office/6-medium.jpg"
+        
+    ],
         "plans": [
             {
                 "name": "First floor",
@@ -600,32 +561,21 @@
             }
         ],
         "gallery": [
-            {
-                "small": "assets/images/props/apartment/1-small.jpg",
-                "medium": "assets/images/props/apartment/1-medium.jpg",
-                "big": "assets/images/props/apartment/1-big.jpg"
-            },
-            {
-                "small": "assets/images/props/apartment/2-small.jpg",
-                "medium": "assets/images/props/apartment/2-medium.jpg",
-                "big": "assets/images/props/apartment/2-big.jpg"
-            },
-            {
-                "small": "assets/images/props/apartment/3-small.jpg",
-                "medium": "assets/images/props/apartment/3-medium.jpg",
-                "big": "assets/images/props/apartment/3-big.jpg"
-            },
-            {
-                "small": "assets/images/props/apartment/4-small.jpg",
-                "medium": "assets/images/props/apartment/4-medium.jpg",
-                "big": "assets/images/props/apartment/4-big.jpg"
-            },
-            {
-                "small": "assets/images/props/apartment/5-small.jpg",
-                "medium": "assets/images/props/apartment/5-medium.jpg",
-                "big": "assets/images/props/apartment/5-big.jpg"
-            }
-        ],
+        
+            "assets/images/props/office/1-medium.jpg",
+          
+    
+             "assets/images/props/office/2-medium.jpg",
+      
+             "assets/images/props/office/3-medium.jpg",
+         
+             "assets/images/props/office/4-medium.jpg",
+     
+             "assets/images/props/office/5-medium.jpg",
+      
+             "assets/images/props/office/6-medium.jpg"
+        
+    ],
         "plans": [
             {
                 "name": "First floor",

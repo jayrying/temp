@@ -272,6 +272,7 @@ export class PropertyComponent implements OnInit {
            || property.bathroom===this.attaproperty.bathRoom
           ){
 
+
           this.relatedProperties.push(
             {
                       "id": property.id,
@@ -291,7 +292,7 @@ export class PropertyComponent implements OnInit {
                       "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Swimming Pool", "TV Cable", "WiFi"],
                       "featured": false, 
                       "priceDollar": {
-                          "sale": property.price,
+                          "sale": property.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                           "rent": null
                       },
                       "priceEuro": {
@@ -342,7 +343,10 @@ export class PropertyComponent implements OnInit {
                               "value": "2"
                           }
                       ],
-                      "gallery": property.images,
+                      "gallery":[environment.crmurl + property.images[0],environment.crmurl + property.images[1],
+                      environment.crmurl + property.images[2],environment.crmurl + property.images[3],
+                      environment.crmurl + property.images[4],environment.crmurl + property.images[5],
+                      environment.crmurl + property.images[6]],
                       "plans": [
                           {
                               "name": "First floor",
