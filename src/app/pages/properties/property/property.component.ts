@@ -11,7 +11,7 @@ import { EmbedVideoService } from 'ngx-embed-video';
 import { emailValidator } from 'src/app/theme/utils/app-validators';
 import { property } from '../../../models/property.model';
 import { ApiService } from 'src/app/services/api.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import {environment} from '../../../../environments/environment';
 declare var jquery: any;
 declare var $: any;@Component({
@@ -119,6 +119,23 @@ export class PropertyComponent implements OnInit {
       
      this.attaproperty.askingPrice=askingPrice;
      this.attaproperty.currencyUnit=currencyUnit;
+    
+      console.log('Getting address: ', this.attaproperty.address);
+      let geocoder = new google.maps.Geocoder();
+      
+          geocoder.geocode({
+              'address': this.attaproperty.address
+          }, (results, status) => {
+              if (status == google.maps.GeocoderStatus.OK) {
+                results[0].geometry.location;
+                  
+              } else {
+                  console.log('Error: ', results, ' & Status: ', status);
+                 
+              }
+          });
+     
+  
     this.getRelatedProperties();
      }
      else{
