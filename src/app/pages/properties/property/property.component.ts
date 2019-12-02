@@ -31,6 +31,8 @@ export class PropertyComponent implements OnInit {
   private sub: any;
   public property:Property; 
   public attaproperty; 
+  lat:any;
+  lng:any;
   private propertySubscription: Subscription;
   public settings: Settings;  
   public embedVideo: any;
@@ -108,32 +110,24 @@ export class PropertyComponent implements OnInit {
     
 
      if(res!=undefined){
-      
+      this.attaproperty = res;
       let splitCurrency=res.askingPrice.split(' ');
-      
+      let splitlocation=res.map.split(",")
       if(splitCurrency[0]==='TTD'){
       askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
        currencyUnit=splitCurrency[0];
       }
-       this.attaproperty = res;
+     
+       
       
      this.attaproperty.askingPrice=askingPrice;
      this.attaproperty.currencyUnit=currencyUnit;
+
+     this.attaproperty.latitude=parseFloat(splitlocation[0]);
+     this.attaproperty.longitude= parseFloat(splitlocation[1]);
     
-      console.log('Getting address: ', this.attaproperty.address);
-      let geocoder = new google.maps.Geocoder();
-      
-          geocoder.geocode({
-              'address': this.attaproperty.address
-          }, (results, status) => {
-              if (status == google.maps.GeocoderStatus.OK) {
-                results[0].geometry.location;
-                  
-              } else {
-                  console.log('Error: ', results, ' & Status: ', status);
-                 
-              }
-          });
+      console.log('Getting address: ', this.attaproperty);
+     
      
   
     this.getRelatedProperties();
@@ -463,7 +457,7 @@ export class PropertyComponent implements OnInit {
   
   getAgentImage() {
     if(!this.attaproperty) return null;
-    return this.attaproperty.agentImagePath ? '//residencecrm.com' + this.attaproperty.agentImagePath : null;
+    return this.attaproperty.agentCompanyImagePath ? '//residencecrm.com' + this.attaproperty.agentCompanyImagePath : null;
   }
   getAgentPhoneNumber() {
     if(!this.attaproperty) return null;

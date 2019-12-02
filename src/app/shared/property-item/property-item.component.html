@@ -46,7 +46,7 @@
                 </p>
 
                 <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <div>
+                    <!-- <div>
                         <h3 *ngIf="settings.currency == 'USD'" class="primary-color price">
                             <span *ngIf="property.priceDollar.sale">{{property.priceDollar.sale | currency : 'USD' : 'symbol' : '1.0'}}</span>
                             <span *ngIf="property.priceDollar.rent">{{property.priceDollar.rent | currency : 'USD' : 'symbol' : '1.0'}} /month</span>
@@ -55,7 +55,7 @@
                             <span *ngIf="property.priceEuro.sale">{{property.priceEuro.sale | currency : 'EUR' : 'symbol' : '1.0'}}</span>
                             <span *ngIf="property.priceEuro.rent">{{property.priceEuro.rent | currency : 'EUR' : 'symbol' : '1.0'}} /month</span>
                         </h3>
-                    </div>
+                    </div> -->
                     <app-rating [ratingsCount]="property.ratingsCount" [ratingsValue]="property.ratingsValue"></app-rating>
                 </div>
 

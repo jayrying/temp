@@ -217,12 +217,12 @@
             </div>            
 
             <div *ngIf="properties?.length > 0" fxFlex="100" fxLayoutAlign="center center" class="p-2">
-                <mat-paginator [length]="propertiescount"
-                              [pageSize]="count"
-                              (page)="onPageChange($event)"
-                              class="w-100 mat-elevation-z1">
-                </mat-paginator>
-            </div>          
+                    <mat-paginator [length]="propertiescount"
+                                  [pageSize]="count"
+                                  (page)="onPageChange($event)"
+                                  class="w-100 mat-elevation-z1">
+                    </mat-paginator>
+                </div>        
          
         </div>
 
