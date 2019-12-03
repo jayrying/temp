@@ -100,6 +100,7 @@ export class PropertyComponent implements OnInit {
   public getPropertyById(id){
     this.appService.getPropertyById(id).subscribe(data=>{
       this.property = data;  
+      console.log("this.property",this.property)
     });
   }
   public getAttaPropertyById(id){
@@ -276,11 +277,12 @@ export class PropertyComponent implements OnInit {
     console.log("related property",relatedarray)
 
     relatedarray.subscribe((res:any) =>{
-      console.log("res",res)
+      console.log("res",this.attaproperty)
       res.data.forEach((property:any)=>{
 
         if(property.bedroom===this.attaproperty.bedRoom
            || property.bathroom===this.attaproperty.bathRoom
+           || property.location===this.attaproperty.location
           ){
 
 
