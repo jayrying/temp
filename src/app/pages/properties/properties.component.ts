@@ -150,6 +150,8 @@ export class PropertiesComponent implements OnInit {
     this.apiService.getProperties(fullqueryString);
     this.propertiesSubscription = this.apiService.getPropertiesUpdateListener().subscribe((properties) => {
       //this.attaproperties = properties;
+      this.attaproperties=[]
+
       properties.forEach(item =>{
         let splitCurrency=item.price.split(' ');
        let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -373,22 +375,23 @@ res.items.forEach(item =>{
     this.pageIndex = e.pageIndex;
     if(this.propertyCountry==='trindo'){
       this.getpropertiesnew();
-
+      window.scrollTo(0, 0);
     }
     if(this.propertyCountry==='england'){
       this.getpropertiesengland();
-
+      window.scrollTo(0, 0);
     }
     if(this.propertyCountry==='bahamas'){
       this.getpropertiesbahamas();
-
+      window.scrollTo(0, 0);
     }
     if(this.propertyCountry==='cayman'){
       this.getpropertiescayman();
-
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
+    
   }
+
   public searchFormResetClicked()
   {
     console.log('properties.component reset clicked');
