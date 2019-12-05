@@ -21,7 +21,8 @@
                 <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
                     <mat-form-field>
                         <mat-label>Property Type</mat-label>
-                        <mat-select placeholder="Select Property Type" name="searchformPropertyType" [(ngModel)]="searchformPropertyType">
+                        <mat-select  placeholder="Select Property Type" 
+                        name="searchformPropertyType" [(ngModel)]="searchformPropertyType" (ngModelChange)='searchFormSearchClicked()'>
                             <mat-option value=""></mat-option>
                             <mat-option *ngFor="let val of propertyTypes" [value]="val">{{val}}</mat-option>
                         </mat-select>
@@ -30,7 +31,8 @@
                 <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">
                     <mat-form-field>
                         <mat-label>Property Status</mat-label>
-                        <mat-select placeholder="Select Property Status" name="searchformPurpose" [(ngModel)]="searchformPurpose">
+                        <mat-select placeholder="Select Property Status" name="searchformPurpose"
+                         [(ngModel)]="searchformPurpose" (ngModelChange)='searchFormSearchClicked()'>
                             <mat-option value=""></mat-option>
                             <mat-option value="Buy">Buy</mat-option>
                             <mat-option value="Rent">Rent</mat-option>
@@ -42,13 +44,13 @@
                         <div fxFlex="45">
                             <mat-form-field>
                                 <mat-label>Price</mat-label>
-                                <input matInput placeholder="From" name="searchformFromPrice" [(ngModel)]="searchformFromPrice" type="text" onlyNumber>
+                                <input matInput placeholder="From" name="searchformFromPrice" [(ngModel)]="searchformFromPrice" (ngModelChange)='searchFormSearchClicked()' type="text" onlyNumber>
                             </mat-form-field>
                         </div>
                         <div fxFlex="45">
                             <mat-form-field>
                                 <mat-label></mat-label>
-                                <input matInput placeholder="To" name="searchformToPrice" [(ngModel)]="searchformToPrice" type="text" onlyNumber>
+                                <input matInput placeholder="To" name="searchformToPrice" [(ngModel)]="searchformToPrice" (ngModelChange)='searchFormSearchClicked()' type="text" onlyNumber>
                             </mat-form-field>
                         </div>
                     </div>
@@ -68,7 +70,7 @@
                             <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.sm="50" class="p-2">                         
                                 <mat-form-field>
                                     <mat-label>Location</mat-label>
-                                    <mat-select placeholder="Select Locations..." name="searchformLocation" [(ngModel)]="searchformLocation">
+                                    <mat-select placeholder="Select Locations..." name="searchformLocation" [(ngModel)]="searchformLocation" (ngModelChange)='searchFormSearchClicked()'>
                                         <mat-option value=""></mat-option>
                                         <mat-option *ngFor="let location of locations" [value]="location['id']">
                                             {{location["name"]}}
@@ -81,7 +83,7 @@
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Bedrooms</mat-label>
-                                    <mat-select placeholder="From"  name="searchformFromBedroom" [(ngModel)]="searchformFromBedroom" >
+                                    <mat-select placeholder="From"  name="searchformFromBedroom" [(ngModel)]="searchformFromBedroom" (ngModelChange)='searchFormSearchClicked()'>
                                         <mat-option value=""></mat-option>
                                         <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
                                             {{number}}
@@ -92,7 +94,7 @@
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Bedrooms To</mat-label>
-                                    <mat-select placeholder="To"  name="searchformToBedroom" [(ngModel)]="searchformToBedroom" >
+                                    <mat-select placeholder="To"  name="searchformToBedroom" [(ngModel)]="searchformToBedroom" (ngModelChange)='searchFormSearchClicked()'>
                                         <mat-option value=""></mat-option>
                                         <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
                                             {{number}}
@@ -109,7 +111,7 @@
                                 <mat-form-field>
                                     <mat-label>Bathrooms</mat-label>
                                     
-                                    <mat-select placeholder="From"  name="searchformFromBathroom" [(ngModel)]="searchformFromBathroom">
+                                    <mat-select placeholder="From"  name="searchformFromBathroom" [(ngModel)]="searchformFromBathroom" (ngModelChange)='searchFormSearchClicked()'>
                                         <mat-option value=""></mat-option>
                                         <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
                                             {{number}}
@@ -120,7 +122,7 @@
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Bathrooms To</mat-label>
-                                    <mat-select placeholder="To"  name="searchformToBathroom" [(ngModel)]="searchformToBathroom">
+                                    <mat-select placeholder="To"  name="searchformToBathroom" [(ngModel)]="searchformToBathroom" (ngModelChange)='searchFormSearchClicked()'>
                                         <mat-option value=""></mat-option>
                                         <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
                                             {{number}}
@@ -136,13 +138,13 @@
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Area From</mat-label>
-                                    <input matInput  name="searchformFromArea" [(ngModel)]="searchformFromArea" autocomplete="off" placeholder="From" type="text" onlyNumber>                  
+                                    <input matInput  name="searchformFromArea" [(ngModel)]="searchformFromArea" (ngModelChange)='searchFormSearchClicked()' autocomplete="off" placeholder="From" type="text" onlyNumber>                  
                                 </mat-form-field>
                             </div>
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Area To</mat-label>
-                                    <input matInput  name="searchformToArea" [(ngModel)]="searchformToArea" autocomplete="off" placeholder="To" type="text" onlyNumber>                  
+                                    <input matInput  name="searchformToArea" [(ngModel)]="searchformToArea" (ngModelChange)='searchFormSearchClicked()' autocomplete="off" placeholder="To" type="text" onlyNumber>                  
                                 </mat-form-field>
                             </div>
                         </div> 
@@ -152,13 +154,13 @@
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Year Built</mat-label>
-                                    <input matInput  name="searchformFromBuiltinYear" [(ngModel)]="searchformFromBuiltinYear" autocomplete="off" placeholder="From" type="text" onlyNumber maxlength="4">                  
+                                    <input matInput  name="searchformFromBuiltinYear" [(ngModel)]="searchformFromBuiltinYear" (ngModelChange)='searchFormSearchClicked()' autocomplete="off" placeholder="From" type="text" onlyNumber maxlength="4">                  
                                 </mat-form-field>
                             </div>
                             <div fxFlex="45">
                                 <mat-form-field>
                                     <mat-label>Year Built To</mat-label>
-                                    <input matInput  name="searchformToBuiltinYear" [(ngModel)]="searchformToBuiltinYear" autocomplete="off" placeholder="To" type="text" onlyNumber maxlength="4">                  
+                                    <input matInput  name="searchformToBuiltinYear" [(ngModel)]="searchformToBuiltinYear" (ngModelChange)='searchFormSearchClicked()' autocomplete="off" placeholder="To" type="text" onlyNumber maxlength="4">                  
                                 </mat-form-field>
                             </div>
                         </div> 
