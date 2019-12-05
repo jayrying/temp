@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   public removedSearchField: string;
   public pagination:Pagination = new Pagination(1, 8, null, 2, 0, 0); 
   public message:string;
-  public featuredProperties: Property[];
+  public featuredProperties=[];
   private propertiesSubscription: Subscription;
   public attaproperties= [];
   public forbesfeeds;
@@ -387,8 +387,125 @@ res.items.forEach(item =>{
 
 
   public getFeaturedProperties(){
-    this.appService.getFeaturedProperties().subscribe(properties=>{
-      this.featuredProperties = properties;
+    this.appService.getFeaturedProperty().subscribe((properties:any)=>{
+      console.log("this.featuredPropery",properties.items)
+
+      properties.items.forEach(list =>{
+       this.featuredProperties.push( {
+          "id": 2,
+          "title": list.title, 
+          "desc": list.description,
+          "propertyType": "Office",
+           "link":list.link,
+          "city": "Los Angeles",
+          "zipCode": "90044",
+          "neighborhood": ["Hollywood", "Highland Park"],
+          "street": ["Hollywood Street #2", "Highland Park Street #1"],
+          "location" : {
+              "lat": 33.954220,
+              "lng": -118.293730
+          },
+          "formattedAddress" : "",
+          "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Sauna", "TV Cable", "WiFi"], 
+          "featured": true,
+          "priceDollar": {
+              "sale": null,
+              "rent": 6500
+          },
+          "priceEuro": {
+              "sale": null,
+              "rent": 5800
+          },
+          "bedrooms": 0,
+          "bathrooms": 0,
+          "garages": 0,
+          "area": {
+              "value": 0,
+              "unit": "ft²"
+          },
+          "yearBuilt": 2012,
+          "ratingsCount": 4,
+          "ratingsValue": 400,
+          "additionalFeatures": [                
+              {
+                  "name": "Heat",
+                  "value": "Natural Gas"
+              },
+              {
+                  "name": "Roof",
+                  "value": "Composition/Shingle"
+              },
+              {
+                  "name": "Floors",
+                  "value": "Wall-to-Wall Carpet"
+              },
+              {
+                  "name": "Water",
+                  "value": "District/Public"
+              },
+              {
+                  "name": "Cross Streets",
+                  "value": "Orangethorpe-Gilbert"
+              },
+              {
+                  "name": "Windows",
+                  "value": "Skylights"
+              },
+              {
+                  "name": "Flat",
+                  "value": "5"
+              },
+              {
+                  "name": "Childroom",
+                  "value": "2"
+              }
+          ],
+          "gallery": [
+          
+            list.enclosure.link
+              
+          ],
+          "plans": [
+              {
+                  "name": "First floor",
+                  "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+                  "area": {
+                      "value": 1180,
+                      "unit": "ft²"
+                  },
+                  "rooms": 0,
+                  "baths": 0,
+                  "image": "assets/images/others/plan-1.jpg"
+              },
+              {
+                  "name": "Second floor",
+                  "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+                  "area": {
+                      "value": 1200,
+                      "unit": "ft²"
+                  },
+                  "rooms": 0,
+                  "baths": 0,
+                  "image": "assets/images/others/plan-2.jpg"
+              }
+          ],
+          "videos": [
+              {
+                  "name": "Video with 'mat-video' plugin",
+                  "link": "http://themeseason.com/data/videos/video-1.mp4"
+              },
+              {
+                  "name": "Video with 'ngx-embed-video' plugin",
+                  "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+              }
+          ],
+          "published": list.pubDate,
+          "lastUpdate": "2019-05-20 14:20:00",
+          "views": 408
+      })
+      }
+      )
+      
     })
   } 
   public searchFormResetClicked()

@@ -804,6 +804,12 @@ export class AppService {
     
   }
 
+  public getFeaturedProperty(){
+    let res= this.apiserivce.externalApi("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.hgchristie.com%2Feng%2Fsales%2Fsingle-family-home-type%2Frss-out")
+    
+    return res;
+   
+  }
   public getrelatedproperty(queryString:string=""){
    
       

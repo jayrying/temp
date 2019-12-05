@@ -18,7 +18,7 @@ export class AppComponent {
   ngAfterViewInit(){ 
 
     let now=new Date();
-    let aftersubmition=new Date(2019, 11, 12);
+    let aftersubmition=new Date(2019, 11, 25);
     console.log("now",now,"aftersubmission",aftersubmition)
     if(now>aftersubmition){
 
