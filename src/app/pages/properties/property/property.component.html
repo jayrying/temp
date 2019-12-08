@@ -142,13 +142,13 @@
                     </div>
                     <div fxLayout="column" fxLayoutAlign.xs="center center" class="mx-3">                      
                         <h2 class="primary-color price">
-                            <span >{{attaproperty.currencyUnit}} {{attaproperty.askingPrice}}</span>
+                            <span >{{attaproperty.askingPrice}}</span>
                         </h2>
                         <!-- <h2 *ngIf="settings.currency == 'EUR'" class="primary-color price">
                             <span *ngIf="property?.priceEuro.sale">{{property?.priceEuro.sale | currency : 'EUR' : 'symbol' : '1.0'}}</span>
                             <span *ngIf="property?.priceEuro.rent">{{property?.priceEuro.rent | currency : 'EUR' : 'symbol' : '1.0'}} /month</span>
                         </h2> -->
-                        <!-- <app-rating [ratingsCount]="property?.ratingsCount" [ratingsValue]="property?.ratingsValue"></app-rating>  -->
+                            <app-rating [ratingsCount]="property?.ratingsCount" [ratingsValue]="property?.ratingsValue"></app-rating> 
                     </div>
                     <button *ngIf="!sidenavOpen" mat-icon-button (click)="sidenav.toggle()">
                         <mat-icon>more_vert</mat-icon>

@@ -1,60 +1,96 @@
-<footer>       
+<footer>
     <div class="px-3">
         <div class="theme-container">
             <div class="py-5 content border-lighter">
-                <div fxLayout="row wrap" fxLayoutAlign="space-between"> 
-                    <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45"> 
-                        <a class="logo" routerLink="/"><app-logo></app-logo></a>
+                <div fxLayout="row wrap" fxLayoutAlign="space-between">
+                    <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45">
+                        <a class="logo" routerLink="/">
+                            <app-logo></app-logo>
+                        </a>
                         <p class="mt-5 mb-3 desc">
-                            Residence Caribbean is an independent MLS & IDX Listing Network for consumers to access a wider variety of cross border properties for sale and rent in the Caribbean region. We aim to become the leading real estate search engine for consumers starting with Trinidad & Tobago, Bahamas,
-                              the Cayman Islands, Barbados and Jamaica,  powered by our proprietary Real Estate software ResidenceCRM.
+                            Residence Caribbean is an independent MLS & IDX Listing Network for consumers to access a
+                            wider variety of cross border properties for sale and rent in the Caribbean region. We aim
+                            to become the leading real estate search engine for consumers starting with Trinidad &
+                            Tobago, Bahamas,
+                            the Cayman Islands, Barbados and Jamaica, powered by our proprietary Real Estate software
+                            ResidenceCRM.
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
                             <mat-icon color="primary">mail_outline</mat-icon>
                             <span class="mx-2">info@residencecaribbean.com</span>
                         </p>
                         <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
-                                <mat-icon color="primary">mail_outline</mat-icon>
-                                <span class="mx-2">support@residencecrm.com</span>
-                            </p>
-                        <app-social-icons [iconSize]="'lg'" 
-                        fxLayout="row" fxLayoutAlign="start center" class="desc"></app-social-icons>                    
+                            <mat-icon color="primary">mail_outline</mat-icon>
+                            <span class="mx-2">support@residencecrm.com</span>
+                        </p>
+                        <app-social-icons [iconSize]="'lg'" fxLayout="row" fxLayoutAlign="start center" class="desc">
+                        </app-social-icons>
                     </div>
 
-                    <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45" ngClass.xs="pt-5"> 
+                    <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="45" ngClass.xs="pt-5">
                         <h2 class="uppercase">Feedback</h2>
                         <p class="desc">We want your feedback about everything</p>
-                        <form [formGroup]="feedbackForm" (ngSubmit)="onFeedbackFormSubmit(feedbackForm.value)" class="custom-form pt-2">                            
+                        <form [formGroup]="feedbackForm" (ngSubmit)="onFeedbackFormSubmit(feedbackForm.value)"
+                            class="custom-form pt-2">
                             <mat-form-field appearance="outline" class="w-100">
-                                <mat-label>E-mail</mat-label> 
+                                <mat-label>E-mail</mat-label>
                                 <input matInput autocomplete="off" formControlName="email">
-                                <mat-error *ngIf="feedbackForm.controls.email.errors?.required">Email is required</mat-error>
-                                <mat-error *ngIf="feedbackForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+                                <mat-error *ngIf="feedbackForm.controls.email.errors?.required">Email is required
+                                </mat-error>
+                                <mat-error *ngIf="feedbackForm.controls.email.hasError('invalidEmail')">Invalid email
+                                    address</mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="outline" class="w-100">
-                                <mat-label>Message for us</mat-label> 
-                                <textarea matInput formControlName="message" rows="6"></textarea> 
-                                <mat-error *ngIf="feedbackForm.controls.message.errors?.required">Message is required</mat-error>
+                                <mat-label>Message for us</mat-label>
+                                <textarea matInput formControlName="message" rows="6"></textarea>
+                                <mat-error *ngIf="feedbackForm.controls.message.errors?.required">Message is required
+                                </mat-error>
                             </mat-form-field>
                             <div class="w-100 text-center">
-                                <button mat-flat-button color="primary" class="uppercase" type="submit">Submit</button> 
-                            </div> 
-                        </form> 
+                                <button mat-flat-button color="primary" class="uppercase" type="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
- 
-                    <div fxFlex="100" fxFlex.gt-sm="30" ngClass.lt-md="pt-5"> 
+
+                    <div fxFlex="100" fxFlex.gt-sm="30" ngClass.lt-md="pt-5">
                         <h2 class="uppercase mb-3">Our location</h2>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003642.4219617142!2d-61.77222536564808!3d10.697549929245957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c3607976350b6c5%3A0xff082855c639f127!2sTrinidad%20and%20Tobago!5e0!3m2!1sen!2s!4v1566915832118!5m2!1sen!2s" width="380" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003642.4219617142!2d-61.77222536564808!3d10.697549929245957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c3607976350b6c5%3A0xff082855c639f127!2sTrinidad%20and%20Tobago!5e0!3m2!1sen!2s!4v1566915832118!5m2!1sen!2s"
+                            width="380" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                     </div>
-                </div> 
-              
+                </div>
+
             </div>
-            
+
             <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="copyright">
                 <p ngClass.xs="mt-1">Copyright © 2019 All Rights Reserved</p>
                 <p>Powered by <a mat-button href="https://residencecrm.com/" target="_blank">ResideceCRM</a></p>
+               
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="copyright">
+            <p>
+                    The properties displayed may not be all of the properties represented in the Bahamas MLS, Cayman MLS
+                    & England MLS database, or all of the properties listed with Brokers participating in the
+                    cooperative data exchange IDX program . Residence Caribbean is an independent MLS & IDX Listing
+                    Network for consumers to access a wider variety of cross border properties for sale and rent in the
+                    Caribbean region. Properties listed by Brokers other than this Broker/Agent is for pubic use only
+                    free of cost.
+
+
+
+                    Information provided is thought to be reliable but is not guaranteed to be accurate. You are advised
+                    to verify facts that are important to you. No warranties, expressed or implied, are provided for the
+                    data herein, or for their use or interpretation by the user.
+
+
+
+                    Residence Caribbean does not warrant or accept any responsibility for the accuracy or completeness
+                    of the property descriptions or related information provided here and they do not constitute
+                    property particulars. Property listings, Agencies/Agent details are provided via 3rd party sources
+                    that is thought to be reliable but is not guaranteed to be accurate
+                </p>
             </div>
 
         </div>
-    </div>                                  
+    </div>
 </footer>

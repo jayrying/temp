@@ -106,7 +106,9 @@ localStorage.setItem("propertyCountry",'trindo')
       zooplaImages:[],
       price:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ,
       size:item.size,
-      tags:item.tags
+      tags:item.tags,
+      "ratingsCount": 4,
+      "ratingsValue": 400,
   })
   })
 
@@ -161,7 +163,9 @@ localStorage.setItem("propertyCountry",'trindo')
       zooplaImages:[],
       price:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ,
       size:item.size,
-      tags:item.tags
+      tags:item.tags,
+      "ratingsCount": 4,
+      "ratingsValue": 400,
   })
   })
     
@@ -205,6 +209,8 @@ res.listing.forEach(item =>{
     zooplaImages:[item.image_url,item.image_80_60_url,item.image_150_113_url,item.image_354_255_url],
     price:'GBP'+" "+item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
     size:"5200 Sq.ft",
+    "ratingsCount": 4,
+    "ratingsValue": 400,
     tags:["For Rent", "Residential Plot"]
 })
 })
@@ -238,7 +244,9 @@ res.items.forEach(item =>{
       bahamasImages:[item.enclosure.link],
       price:'',
       size:"5200 Sq.ft",
-      tags:["For Rent", "Residential Plot"]
+      tags:["For Rent", "Residential Plot"],
+      "ratingsCount": 4,
+      "ratingsValue": 400,
 })
 })
 
@@ -270,7 +278,9 @@ res.items.forEach(item =>{
       caymanImages:[item.enclosure.link],
       price:'',
       size:"5200 Sq.ft",
-      tags:["For Rent", "Residential Plot"]
+      tags:["For Rent", "Residential Plot"],
+      "ratingsCount": 4,
+      "ratingsValue": 400,
 })
 })
 

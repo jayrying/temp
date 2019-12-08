@@ -86,7 +86,7 @@
 
         <div fxLayout="row wrap" class="properties-wrapper">
             <div fxFlex="100" class="p-2">
-                <h1 fxLayoutAlign="center center" class="section-title">Recent Listing</h1>
+                <h1 fxLayoutAlign="center center" class="section-title">Recent Listings</h1>
             </div>
             <div *ngFor="let property of attaproperties" [fxFlex]="(viewType=='grid') ? viewCol : 100" class="item">
                 <app-property-item-new [property]="property" [viewType]="viewType" [viewColChanged]="viewCol">

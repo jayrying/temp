@@ -1,5 +1,5 @@
 <mat-card *ngIf='property' class="property-item p-0" [ngClass]="[viewType + '-item', 'column-'+column]" 
-[class.full-width-page]="fullWidthPage" style="height: 536px !important;" fxLayout="row wrap">  
+[class.full-width-page]="fullWidthPage"  fxLayout="row wrap">  
   
     <div fxFlex="100" fxShrink="3" [fxFlex.gt-sm]="(viewType=='list') ? 40 : 100" 
     [fxFlex.sm]="(viewType=='list') ? 50 : 100" class="thumbnail-section">
@@ -82,7 +82,9 @@
                     <span class="mx-2">{{property.published | date:"dd MMMM, yyyy" }}</span>
                 </p>
                 <div>
-                    <a target="_blank" href="{{property.link}}" mat-stroked-button color="primary" class="uppercase">Details</a>
+                <a *ngIf='!property.link' [routerLink]="['/properties/property', property.id]" mat-stroked-button color="primary" class="uppercase">Details</a>
+
+                    <a *ngIf='property.link' target="_blank" href="{{property.link}}" mat-stroked-button color="primary" class="uppercase">Details</a>
                 </div> 
             </mat-card-actions> 
         </div>        

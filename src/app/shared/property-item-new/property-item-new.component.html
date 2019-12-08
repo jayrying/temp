@@ -53,12 +53,13 @@
             <mat-card-content class="mb-0">
               
                 <h1 class="title"><a [routerLink]="['/properties', property.id]">{{property.location}}</a></h1>
+               
 
                 <p fxLayout="row" class="address">
                     <mat-icon class="text-muted">location_on</mat-icon>
                     <span>{{property.address}}</span>
                 </p>
-
+                <app-rating [ratingsCount]="property.ratingsCount" [ratingsValue]="property.ratingsValue"></app-rating>
                 <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div>
                         <!-- <h3 *ngIf="settings.currency == 'USD'" class="primary-color price">
@@ -71,7 +72,6 @@
                             <span *ngIf="property.priceEuro.rent">{{property.priceEuro.rent | currency : 'EUR' : 'symbol' : '1.0'}} /month</span> -->
                         </h3>
                     </div>
-                    <!-- <app-rating [ratingsCount]="property.ratingsCount" [ratingsValue]="property.ratingsValue"></app-rating> -->
                 </div>
 
                 <div *ngIf="viewType=='list' && fullWidthPage" fxShow="false" fxShow.gt-sm class="mt-3"> 

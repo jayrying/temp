@@ -567,7 +567,7 @@ export class AppService {
   image: 'assets/images/agents/a-8.png' 
 },
 { 
-  id: 14,
+  id: 15,
   fullName: 'Anson Dale Humphrey',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "Circular Realty Investments",
@@ -585,7 +585,7 @@ export class AppService {
   image: 'assets/images/agents/a-15.jpg' 
 },
 { 
-  id: 14,
+  id: 13,
   fullName: 'Briscombe Nutter & Staff',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "9 Barton Road, Worsley",
@@ -638,7 +638,7 @@ export class AppService {
   image: 'assets/images/agents/a-4.jpg'  
 },
 { 
-  id: 14,
+  id: 17,
   fullName: 'Kerron Brown',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "GenX Realty",
@@ -709,7 +709,7 @@ export class AppService {
   image: 'assets/images/agents/a-11.jpeg' 
 },
 { 
-  id: 13,
+  id: 14,
   fullName: 'Residential Estates',
   //desc: 'Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.',            
   organization: "Maple House, 23 Watergate Row, Chester",

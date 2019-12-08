@@ -113,19 +113,30 @@ export class PropertyComponent implements OnInit {
      if(res!=undefined){
       this.attaproperty = res;
       let splitCurrency=res.askingPrice.split(' ');
-      let splitlocation=res.map.split(",")
-      if(splitCurrency[0]==='TTD'){
-      askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-       currencyUnit=splitCurrency[0];
+      let splitlocation;
+      if(res.map){
+        splitlocation=res.map.split(",")
+      }
+      console.log("split currency",splitCurrency)
+      if(splitCurrency){
+      askingPrice=splitCurrency[2],
+             currencyUnit=splitCurrency[0];
       }
      
        
       
-     this.attaproperty.askingPrice=askingPrice;
+      if(askingPrice){
+     this.attaproperty.askingPrice=currencyUnit+ " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
      this.attaproperty.currencyUnit=currencyUnit;
+     this.attaproperty.latitude=31.21545454;
+     this.attaproperty.longitude=78.2454544;
+     if(res.map){
 
      this.attaproperty.latitude=parseFloat(splitlocation[0]);
      this.attaproperty.longitude= parseFloat(splitlocation[1]);
+     }
     
       console.log('Getting address: ', this.attaproperty);
      
@@ -143,9 +154,12 @@ export class PropertyComponent implements OnInit {
     if(this.attaproperty===undefined){
       this.apiService.externalApi(`https://api.zoopla.co.uk/api/v1/property_listings.js?listing_id=${id}&radius=40&area=bahamas&&output_type=outcode&api_key=6c4qn9zh4kd8yd8c9rngqr9a`)
       .subscribe((res:any)=>{
-        console.log("resooo",res)
         this.attaproperty={};
-      
+        let splitCurrency=res.listing[0].price.split(' ');
+     let askingPrice=splitCurrency[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      let currencyUnit=splitCurrency[0];
+      console.log("resooo",askingPrice,currencyUnit)
+
       this.attaproperty={
     
         agentName:res.listing[0].agent_name,
@@ -160,7 +174,7 @@ export class PropertyComponent implements OnInit {
       description:res.listing[0].description,
       images:[],
       zooplaImages:[res.listing[0].image_url,res.listing[0].image_80_60_url,res.listing[0].image_150_113_url,res.listing[0].image_354_255_url],
-      askingPrice:res.listing[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+      askingPrice:currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
       fkLocationIdNameWithParentName:res.listing[0].street_name,
       fkCityIdName:res.listing[0].county,
       propertyType:res.listing[0].property_type,
@@ -280,10 +294,7 @@ export class PropertyComponent implements OnInit {
       console.log("res",this.attaproperty)
       res.data.forEach((property:any)=>{
 
-        if(property.bedroom===this.attaproperty.bedRoom
-           || property.bathroom===this.attaproperty.bathRoom
-           || property.location===this.attaproperty.location
-          ){
+       
 
 
           this.relatedProperties.push(
@@ -394,14 +405,17 @@ export class PropertyComponent implements OnInit {
                               "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
                           }
                       ],
-                      "published": "2012-08-12 17:17:30",
+                      "published": property.date,
                       "lastUpdate": "2019-05-20 14:20:00",
                       "views": 322
                   },)
                
 
-        }
+        
       })
+      if(!this.relatedProperties.length){
+
+      }
       console.log(this.relatedProperties)
     })
   

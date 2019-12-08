@@ -15,6 +15,9 @@ export class propertysmall {
     public price: string;
     public size: string;
     public tags:string[];
+    public ratingsCount:number[];
+    public ratingsValue:number[];
+
 }
 
 export class property {
