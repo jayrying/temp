@@ -17,13 +17,7 @@ export class AppComponent {
 
   ngAfterViewInit(){ 
 
-    let now=new Date();
-    let aftersubmition=new Date(2019, 11, 25);
-    console.log("now",now,"aftersubmission",aftersubmition)
-    if(now>aftersubmition){
-
-      this.isActive=false;
-    }
+   
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {   
         setTimeout(() => {
