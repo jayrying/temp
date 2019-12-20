@@ -156,6 +156,7 @@ externalApi(url: string) {
 
   headers.set('Content-Type', 'application/x-www-form-urlencoded');
   headers.set('Accept', 'application/json');
+  headers.set('Access-Control-Allow-Headers', '*');
 
 
  
