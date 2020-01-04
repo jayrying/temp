@@ -55,7 +55,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HorizontalMenuComponent,
     VerticalMenuComponent,
     FooterComponent,
-    LockScreenComponent
+    LockScreenComponent,
   ],
   imports: [
     BrowserModule, 

@@ -25,7 +25,8 @@ export const routes: Routes = [
             { path: 'terms-conditions', loadChildren: () => import('./pages/terms-conditions/terms-conditions.module').then(m => m.TermsConditionsModule) },
             { path: 'account', loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule) }, 
             { path: 'submit-property', loadChildren: () => import('./pages/submit-property/submit-property.module').then(m => m.SubmitPropertyModule) } ,  
-            { path: 'market-trends', loadChildren: () => import('./pages/market-trends/market-trends.module').then(m => m.MarketTrendsModule) }   
+            { path: 'market-trends', loadChildren: () => import('./pages/market-trends/market-trends.module').then(m => m.MarketTrendsModule) } ,
+            { path: 'loan-category', loadChildren: () => import('./pages/loan-category/loan-category.module').then(m => m.LoanCategoryModule) }   
         ]
     },
     { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule) },
