@@ -432,13 +432,15 @@ res.listing.forEach(item =>{
       localStorage.removeItem("propertyCountry")
       localStorage.setItem("propertyCountry",'bahamas')
       this.attaproperties=[];
+
 res.items.forEach(item =>{
+  let id=randomCode(3)
 
     this.attaproperties.push({
   
       detail:true,
       link:item.link,
-      id:item.listing_id,
+      id:id,
       address:item.title,
       bathroom:0,
       bedroom:0,
@@ -570,12 +572,14 @@ res.items.forEach(item =>{
       localStorage.removeItem("propertyCountry")
       localStorage.setItem("propertyCountry",'cayman')
       this.attaproperties=[];
-res.items.forEach(item =>{
+     
 
+res.items.forEach(item =>{
+  let id=randomCode(3)
     this.attaproperties.push({
       detail:true,
       link:item.link,
-      id:item.listing_id,
+      id:id,
       address:item.title,
       bathroom:0,
       bedroom:0,
@@ -699,6 +703,8 @@ res.items.forEach(item =>{
   
     })
   }
+
+  
   public makefullquerystring() {
     var querystring = "";
     querystring += "pageIndex=" + this.pageIndex;
@@ -871,5 +877,15 @@ res.items.forEach(item =>{
 
     }
   }
+ 
+}
 
+function randomCode(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
 }

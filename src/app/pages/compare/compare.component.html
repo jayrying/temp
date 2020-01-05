@@ -23,7 +23,8 @@
         <div class="swiper-wrapper h-100">      
           <div *ngFor="let property of appService.Data.compareList" class="swiper-slide">
 
-            <mat-card class="compare-item">                 
+            <mat-card class="compare-item " [ngClass]="[viewType + '-item', 'column-'+column]" 
+            [class.full-width-page]="fullWidthPage" fxLayout="row wrap" >                 
                 <img mat-card-image [src]="property.gallery[0]" alt="image"> 
                 <button mat-icon-button class="remove" (click)="remove(property)">
                   <mat-icon color="warn" class="mat-icon-lg">highlight_off</mat-icon>

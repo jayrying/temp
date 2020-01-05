@@ -547,11 +547,12 @@ res.listing.forEach(item =>{
       this.zooplaproperties=[];
       this.caymanproperties=[]
 res.items.forEach(item =>{
+  let id=randomCode(3)
 
     this.bahamasproperties.push({
       detail:true,
       link:item.link,
-      id:item.listing_id,
+      id:id,
       address:item.title,
       bathroom:0,
       bedroom:0,
@@ -685,12 +686,14 @@ res.items.forEach(item =>{
       this.attaproperties=[];
       this.bahamasproperties=[];
       this.zooplaproperties=[]
+
 res.items.forEach(item =>{
+  let id=randomCode(3)
 
     this.caymanproperties.push({
       detail:true,
       link:item.link,
-      id:item.listing_id,
+      id:id,
       address:item.title,
       bathroom:0,
       bedroom:0,
@@ -928,8 +931,9 @@ res.items.forEach(item =>{
       console.log("this.featuredPropery",properties.items)
 
       properties.items.forEach(list =>{
+        let id=randomCode(3)
        this.featuredProperties.push( {
-          "id": 2,
+          "id": id,
           "title": list.title, 
           "desc": list.description,
           "propertyType": "Office",
@@ -1075,4 +1079,13 @@ res.items.forEach(item =>{
     this.router.navigate(['/properties/'+QueryString]);
   }
 
+}
+function randomCode(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
 }
