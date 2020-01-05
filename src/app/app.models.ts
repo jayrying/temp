@@ -23,6 +23,7 @@ export class Property {
                 public ratingsValue: number,
                 public additionalFeatures: AdditionalFeature[],
                 public gallery: Gallery[],
+                public images:Images[],
                 public plans: Plan[],
                 public videos: Video[],
                 public published: string,
@@ -88,6 +89,12 @@ export class Price {
 
 
 export class Gallery {
+    constructor(public id: number, 
+                public small: string,
+                public medium: string,
+                public big: string){ }
+}
+export class Images {
     constructor(public id: number, 
                 public small: string,
                 public medium: string,

@@ -15,7 +15,9 @@ import {environment} from '../../../environments/environment';
 })
 export class PropertyItemNewComponent implements OnInit {
   public environment;
-  @Input() property: propertysmall;
+  // @Input() property: propertysmall;
+  @Input() property;
+
   @Input() viewType: string = "grid";
   @Input() viewColChanged: boolean = false; 
   @Input() fullWidthPage: boolean = true;   
@@ -123,7 +125,8 @@ export class PropertyItemNewComponent implements OnInit {
   
 
   public addToCompare(){
-    //this.appService.addToCompare(this.property, CompareOverviewComponent, (this.settings.rtl) ? 'rtl':'ltr'); 
+    console.log("propety compare",this.property)
+  this.appService.addToCompare(this.property, CompareOverviewComponent, (this.settings.rtl) ? 'rtl':'ltr'); 
   }
 
   public onCompare(){

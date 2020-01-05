@@ -16,6 +16,7 @@ export class CompareComponent implements OnInit {
   public config: SwiperConfigInterface = {}; 
   public watcher: Subscription; 
   public settings: Settings;
+
   constructor(public appSettings:AppSettings, public appService:AppService, public mediaObserver: MediaObserver) {
     this.settings = this.appSettings.settings;
   }

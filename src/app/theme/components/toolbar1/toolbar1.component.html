@@ -10,6 +10,12 @@
           <mat-icon>menu</mat-icon>
         </button> 
       </span>
+      <a routerLink="/compare" mat-icon-button matTooltip="Compare list" fxShow="false" fxShow.gt-md class="mr-3 ml-2">
+        <mat-icon [matBadge]="appService.Data.compareList.length" 
+                  [matBadgeHidden]="appService.Data.compareList.length == 0" 
+                  matBadgeSize="small" 
+                  matBadgeColor="warn">compare_arrows</mat-icon>
+    </a> 
       <a href="https://residencecrm.com/account/login" mat-raised-button color="primary" fxShow="false" fxShow.gt-xs class="uppercase">submit property</a>
     </div>   
   </div>     

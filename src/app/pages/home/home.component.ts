@@ -109,6 +109,113 @@ localStorage.setItem("propertyCountry",'trindo')
       tags:item.tags,
       "ratingsCount": 4,
       "ratingsValue": 400,
+          "title": item.location, 
+          "desc": item.description,
+          "propertyType": "Office",
+          "city": item.address,
+          "zipCode": "90044",
+          "neighborhood": ["Hollywood", "Highland Park"],
+          "street": ["Hollywood Street #2", "Highland Park Street #1"],
+       
+          "formattedAddress" : item.address,
+          "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Sauna", "TV Cable", "WiFi"], 
+          "featured": true,
+          "priceDollar": {
+              "sale": currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+              
+          },
+          "priceEuro": {
+              "sale": currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+             
+          },
+          "bedrooms":item.bedroom ,
+        
+          "bathrooms": item.bathroom,
+          "garages": 0,
+          "area": {
+              "value": item.size,
+              
+          },
+          "yearBuilt": 2012,
+        
+          "additionalFeatures": [                
+              {
+                  "name": "Heat",
+                  "value": "Natural Gas"
+              },
+              {
+                  "name": "Roof",
+                  "value": "Composition/Shingle"
+              },
+              {
+                  "name": "Floors",
+                  "value": "Wall-to-Wall Carpet"
+              },
+              {
+                  "name": "Water",
+                  "value": "District/Public"
+              },
+              {
+                  "name": "Cross Streets",
+                  "value": "Orangethorpe-Gilbert"
+              },
+              {
+                  "name": "Windows",
+                  "value": "Skylights"
+              },
+              {
+                  "name": "Flat",
+                  "value": "5"
+              },
+              {
+                  "name": "Childroom",
+                  "value": "2"
+              }
+          ],
+          "gallery": [
+          
+            environment.crmurl+item.images[0]
+              
+          ],
+          "plans": [
+              {
+                  "name": "First floor",
+                  "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+                  "area": {
+                      "value": 1180,
+                      "unit": "ft²"
+                  },
+                  "rooms": 0,
+                  "baths": 0,
+                  "image": "assets/images/others/plan-1.jpg"
+              },
+              {
+                  "name": "Second floor",
+                  "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+                  "area": {
+                      "value": 1200,
+                      "unit": "ft²"
+                  },
+                  "rooms": 0,
+                  "baths": 0,
+                  "image": "assets/images/others/plan-2.jpg"
+              }
+          ],
+          "videos": [
+              {
+                  "name": "Video with 'mat-video' plugin",
+                  "link": "http://themeseason.com/data/videos/video-1.mp4"
+              },
+              {
+                  "name": "Video with 'ngx-embed-video' plugin",
+                  "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+              }
+          ],
+          "published": item.date,
+          "lastUpdate": "2019-05-20 14:20:00",
+          "views": 408
+      
+    
   })
   })
 
@@ -166,6 +273,111 @@ localStorage.setItem("propertyCountry",'trindo')
       tags:item.tags,
       "ratingsCount": 4,
       "ratingsValue": 400,
+      "title": item.location, 
+      "desc": item.description,
+      "propertyType": "Office",
+      "city": item.address,
+      "zipCode": "90044",
+      "neighborhood": ["Hollywood", "Highland Park"],
+      "street": ["Hollywood Street #2", "Highland Park Street #1"],
+   
+      "formattedAddress" : item.address,
+      "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Sauna", "TV Cable", "WiFi"], 
+      "featured": true,
+      "priceDollar": {
+          "sale": currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+          
+      },
+      "priceEuro": {
+          "sale": currencyUnit + " "+askingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+         
+      },
+      "bedrooms":item.bedroom ,
+    
+      "bathrooms": item.bathroom,
+      "garages": 0,
+      "area": {
+          "value": item.size,
+          
+      },
+      "yearBuilt": 2012,
+    
+      "additionalFeatures": [                
+          {
+              "name": "Heat",
+              "value": "Natural Gas"
+          },
+          {
+              "name": "Roof",
+              "value": "Composition/Shingle"
+          },
+          {
+              "name": "Floors",
+              "value": "Wall-to-Wall Carpet"
+          },
+          {
+              "name": "Water",
+              "value": "District/Public"
+          },
+          {
+              "name": "Cross Streets",
+              "value": "Orangethorpe-Gilbert"
+          },
+          {
+              "name": "Windows",
+              "value": "Skylights"
+          },
+          {
+              "name": "Flat",
+              "value": "5"
+          },
+          {
+              "name": "Childroom",
+              "value": "2"
+          }
+      ],
+      "gallery": [
+      
+        environment.crmurl+item.images[0]
+          
+      ],
+      "plans": [
+          {
+              "name": "First floor",
+              "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+              "area": {
+                  "value": 1180,
+                  "unit": "ft²"
+              },
+              "rooms": 0,
+              "baths": 0,
+              "image": "assets/images/others/plan-1.jpg"
+          },
+          {
+              "name": "Second floor",
+              "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+              "area": {
+                  "value": 1200,
+                  "unit": "ft²"
+              },
+              "rooms": 0,
+              "baths": 0,
+              "image": "assets/images/others/plan-2.jpg"
+          }
+      ],
+      "videos": [
+          {
+              "name": "Video with 'mat-video' plugin",
+              "link": "http://themeseason.com/data/videos/video-1.mp4"
+          },
+          {
+              "name": "Video with 'ngx-embed-video' plugin",
+              "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+          }
+      ],
+      "published": item.date,
+      "lastUpdate": "2019-05-20 14:20:00",
+      "views": 408
   })
   })
     
@@ -211,7 +423,112 @@ res.listing.forEach(item =>{
     size:"5200 Sq.ft",
     "ratingsCount": 4,
     "ratingsValue": 400,
-    tags:["For Rent", "Residential Plot"]
+    tags:["For Rent", "Residential Plot"],
+    "title": item.displayable_address, 
+    "desc": item.description,
+    "propertyType": "Office",
+    "city": item.displayable_address,
+    "zipCode": "90044",
+    "neighborhood": ["Hollywood", "Highland Park"],
+    "street": ["Hollywood Street #2", "Highland Park Street #1"],
+ 
+    "formattedAddress" : item.displayable_address,
+    "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Sauna", "TV Cable", "WiFi"], 
+    "featured": true,
+    "priceDollar": {
+        "sale": 'GBP'+" "+item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        
+    },
+    "priceEuro": {
+        "sale": 'GBP'+" "+item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+       
+    },
+    "bedrooms":item.bedroom ,
+  
+    "bathrooms": item.bathroom,
+    "garages": 0,
+    "area": {
+        "value": item.size,
+        
+    },
+    "yearBuilt": 2012,
+  
+    "additionalFeatures": [                
+        {
+            "name": "Heat",
+            "value": "Natural Gas"
+        },
+        {
+            "name": "Roof",
+            "value": "Composition/Shingle"
+        },
+        {
+            "name": "Floors",
+            "value": "Wall-to-Wall Carpet"
+        },
+        {
+            "name": "Water",
+            "value": "District/Public"
+        },
+        {
+            "name": "Cross Streets",
+            "value": "Orangethorpe-Gilbert"
+        },
+        {
+            "name": "Windows",
+            "value": "Skylights"
+        },
+        {
+            "name": "Flat",
+            "value": "5"
+        },
+        {
+            "name": "Childroom",
+            "value": "2"
+        }
+    ],
+    "gallery": [
+    
+      item.image_url
+        
+    ],
+    "plans": [
+        {
+            "name": "First floor",
+            "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+            "area": {
+                "value": 1180,
+                "unit": "ft²"
+            },
+            "rooms": 0,
+            "baths": 0,
+            "image": "assets/images/others/plan-1.jpg"
+        },
+        {
+            "name": "Second floor",
+            "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+            "area": {
+                "value": 1200,
+                "unit": "ft²"
+            },
+            "rooms": 0,
+            "baths": 0,
+            "image": "assets/images/others/plan-2.jpg"
+        }
+    ],
+    "videos": [
+        {
+            "name": "Video with 'mat-video' plugin",
+            "link": "http://themeseason.com/data/videos/video-1.mp4"
+        },
+        {
+            "name": "Video with 'ngx-embed-video' plugin",
+            "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+        }
+    ],
+    "published": item.date,
+    "lastUpdate": "2019-05-20 14:20:00",
+    "views": 408
 })
 })
 
@@ -243,10 +560,115 @@ res.items.forEach(item =>{
       images:[],
       bahamasImages:[item.enclosure.link],
       price:'',
-      size:"5200 Sq.ft",
+      size:"0 Sq.ft",
       tags:["For Rent", "Residential Plot"],
       "ratingsCount": 4,
       "ratingsValue": 400,
+      "title": item.title, 
+    "desc": item.description,
+    "propertyType": "Office",
+    "city": item.title,
+    "zipCode": "90044",
+    "neighborhood": ["Hollywood", "Highland Park"],
+    "street": ["Hollywood Street #2", "Highland Park Street #1"],
+ 
+    "formattedAddress" : item.title,
+    "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Sauna", "TV Cable", "WiFi"], 
+    "featured": true,
+    "priceDollar": {
+        "sale": '',
+        
+    },
+    "priceEuro": {
+        "sale": '',
+       
+    },
+    "bedrooms":0 ,
+  
+    "bathrooms": 0,
+    "garages": 0,
+    "area": {
+        "value": "0 Sq.ft",
+        
+    },
+    "yearBuilt": 2012,
+  
+    "additionalFeatures": [                
+        {
+            "name": "Heat",
+            "value": "Natural Gas"
+        },
+        {
+            "name": "Roof",
+            "value": "Composition/Shingle"
+        },
+        {
+            "name": "Floors",
+            "value": "Wall-to-Wall Carpet"
+        },
+        {
+            "name": "Water",
+            "value": "District/Public"
+        },
+        {
+            "name": "Cross Streets",
+            "value": "Orangethorpe-Gilbert"
+        },
+        {
+            "name": "Windows",
+            "value": "Skylights"
+        },
+        {
+            "name": "Flat",
+            "value": "5"
+        },
+        {
+            "name": "Childroom",
+            "value": "2"
+        }
+    ],
+    "gallery": [
+    
+      item.enclosure.link
+        
+    ],
+    "plans": [
+        {
+            "name": "First floor",
+            "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+            "area": {
+                "value": 1180,
+                "unit": "ft²"
+            },
+            "rooms": 0,
+            "baths": 0,
+            "image": "assets/images/others/plan-1.jpg"
+        },
+        {
+            "name": "Second floor",
+            "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+            "area": {
+                "value": 1200,
+                "unit": "ft²"
+            },
+            "rooms": 0,
+            "baths": 0,
+            "image": "assets/images/others/plan-2.jpg"
+        }
+    ],
+    "videos": [
+        {
+            "name": "Video with 'mat-video' plugin",
+            "link": "http://themeseason.com/data/videos/video-1.mp4"
+        },
+        {
+            "name": "Video with 'ngx-embed-video' plugin",
+            "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+        }
+    ],
+    "published": item.date,
+    "lastUpdate": "2019-05-20 14:20:00",
+    "views": 408
 })
 })
 
@@ -281,6 +703,111 @@ res.items.forEach(item =>{
       tags:["For Rent", "Residential Plot"],
       "ratingsCount": 4,
       "ratingsValue": 400,
+      "title": item.title, 
+      "desc": item.description,
+      "propertyType": "Office",
+      "city": item.title,
+      "zipCode": "90044",
+      "neighborhood": ["Hollywood", "Highland Park"],
+      "street": ["Hollywood Street #2", "Highland Park Street #1"],
+   
+      "formattedAddress" : item.title,
+      "features": ["Air Conditioning", "Barbeque", "Dryer", "Microwave", "Refrigerator", "Fireplace", "Sauna", "TV Cable", "WiFi"], 
+      "featured": true,
+      "priceDollar": {
+          "sale": '',
+          
+      },
+      "priceEuro": {
+          "sale": '',
+         
+      },
+      "bedrooms":0 ,
+    
+      "bathrooms": 0,
+      "garages": 0,
+      "area": {
+          "value": "0 Sq.ft",
+          
+      },
+      "yearBuilt": 2012,
+    
+      "additionalFeatures": [                
+          {
+              "name": "Heat",
+              "value": "Natural Gas"
+          },
+          {
+              "name": "Roof",
+              "value": "Composition/Shingle"
+          },
+          {
+              "name": "Floors",
+              "value": "Wall-to-Wall Carpet"
+          },
+          {
+              "name": "Water",
+              "value": "District/Public"
+          },
+          {
+              "name": "Cross Streets",
+              "value": "Orangethorpe-Gilbert"
+          },
+          {
+              "name": "Windows",
+              "value": "Skylights"
+          },
+          {
+              "name": "Flat",
+              "value": "5"
+          },
+          {
+              "name": "Childroom",
+              "value": "2"
+          }
+      ],
+      "gallery": [
+      
+        item.enclosure.link
+          
+      ],
+      "plans": [
+          {
+              "name": "First floor",
+              "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+              "area": {
+                  "value": 1180,
+                  "unit": "ft²"
+              },
+              "rooms": 0,
+              "baths": 0,
+              "image": "assets/images/others/plan-1.jpg"
+          },
+          {
+              "name": "Second floor",
+              "desc": "Plan description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium magnam veniam sit reprehenderit deserunt ad voluptates id aperiam veritatis! Nobis saepe quos eveniet numquam vitae quis, tenetur consectetur impedit dolore.",
+              "area": {
+                  "value": 1200,
+                  "unit": "ft²"
+              },
+              "rooms": 0,
+              "baths": 0,
+              "image": "assets/images/others/plan-2.jpg"
+          }
+      ],
+      "videos": [
+          {
+              "name": "Video with 'mat-video' plugin",
+              "link": "http://themeseason.com/data/videos/video-1.mp4"
+          },
+          {
+              "name": "Video with 'ngx-embed-video' plugin",
+              "link": "https://www.youtube.com/watch?v=-NInBEdSvp8"
+          }
+      ],
+      "published": item.date,
+      "lastUpdate": "2019-05-20 14:20:00",
+      "views": 408
 })
 })
 

@@ -32,7 +32,7 @@
             <button mat-button [disabled]="onFavorites()" (click)="addToFavorites()" matTooltip="Add To Favorite">
                 <mat-icon class="mat-icon-sm">favorite_border</mat-icon>
             </button>
-            <button mat-button [disabled]="onCompare()" (click)="addToCompare()" matTooltip="Add To Compare">
+            <button type="submit" mat-button [disabled]="onCompare()" (click)="addToCompare()" matTooltip="Add To Compare">
                 <mat-icon class="mat-icon-sm">compare_arrows</mat-icon>
             </button>  
         </div> 

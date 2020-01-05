@@ -17,6 +17,7 @@ export class propertysmall {
     public tags:string[];
     public ratingsCount:number[];
     public ratingsValue:number[];
+    
 
 }
 
